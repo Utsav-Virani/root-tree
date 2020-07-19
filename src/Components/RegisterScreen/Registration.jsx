@@ -10,8 +10,7 @@ const Registration = ({ history }) => {
         async event => {
             event.preventDefault();
             const { email, password } = event.target.elements;
-
-
+            sessionStorage.setItem('email', email.value);
             try {
                 await config
                     .auth()
