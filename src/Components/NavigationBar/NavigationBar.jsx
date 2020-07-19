@@ -165,7 +165,7 @@ export default class NavigationBar extends Component {
                                             </div>
                                         </Link>
                                     </li>
-                                    
+
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/contact" style={{ color: navFontColor }}>
                                             <div className="font">
@@ -191,7 +191,7 @@ export default class NavigationBar extends Component {
                             </svg>
                         </div> */}
                     {/* </div> */}
-                    <div className="page-content p-0" id="content">
+                    <div className="page-content p-0 m-0" id="content">
 
                         <Route exact path='/' component={HomeScreenComponent} />
                         <Route exact path="/about" component={AboutScreenComponent} />
