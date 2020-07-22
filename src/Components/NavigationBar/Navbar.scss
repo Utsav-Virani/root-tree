@@ -1,12 +1,13 @@
 $navBarBgColor: #343a40;
 $navBarBgColor: #212529;
+$navBarBgColor: #e9e9e9;
 $navBarTxtColor: #ecf0f1;
 
 $verticalNavWidth: 5rem;
 $horizontalNavHeight: 5.5rem;
 
-$navFontColor: #92CF33;
-$navFontColor: #4CAF50;
+$navFontColor: #92cf33;
+$navFontColor: #434343;
 
 .brandDetails {
   margin-top: 0.5em;
@@ -52,7 +53,7 @@ $navFontColor: #4CAF50;
   height: $horizontalNavHeight;
   // width: calc(100%+$verticalNavWidth);
   width: 100%;
-  box-shadow: 3px 3px 15px 10px rgba(0, 0, 0, 0.1);
+  // box-shadow: 3px 3px 15px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.4s;
   .navbar-form {
     position: absolute;
@@ -93,9 +94,45 @@ $navFontColor: #4CAF50;
   }
 }
 
-.row_one{
+.row_one {
   height: 2rem;
-  
+}
+
+.navBody {
+  background: $navBarBgColor;
+  height: 100vh;
+  width: 100%;
+  .navContent {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    div {
+      font-size: 40px;
+      font-family: Montserrat, sans-serif;
+      line-height: 56px;
+      font-weight: 400px;
+      font-style: normal;
+      margin-bottom: 40px;
+      span {
+        font-family: MontserratBold, sans-serif;
+        font-weight: bold;
+      }
+    }
+    .welcomeBtn{
+      border-radius: 4px;
+      width: 152px;
+      height: 50px;
+      border: 1px solid #434343;
+      transition: .3s ease-in-out;
+      &:focus{
+        box-shadow: none;
+        border: 1px solid #434343;
+      }
+    }
+  }
 }
 
 .page-content {
@@ -159,4 +196,14 @@ $navFontColor: #4CAF50;
 @font-face {
   font-family: ptsans;
   src: url("../../Assets/Fonts/PTSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("../../Assets/Fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: MontserratBold;
+  src: url("../../Assets/Fonts/Montserrat-Bold.ttf");
 }

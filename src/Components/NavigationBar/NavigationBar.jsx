@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Logo from '../../images/Logo/logo.png';
+
+
+import Logo from '../../Assets/images/logo/Logo.png';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -63,17 +65,18 @@ export default class NavigationBar extends Component {
             // <AuthenticationProvider>
             <Router>
                 <div className="mainBody">
-                    <nav className="navbar horizontelNav navbar-expand sticky-top">
-                        <div className="brandDetails">
-                            <center>
-                                <Link className="navbar-brand" to="/">
-                                    <img src={Logo} alt="RT" height='70px' />
-                                </Link>
-                            </center>
-                        </div>
-                        <div className="row w-100">
-                            <div className="row row_one col-12 w-100">
-                                {/* <form className="navbar-form">
+                    <div className="navBody">
+                        <nav className="navbar container horizontelNav navbar-expand">
+                            <div className="brandDetails">
+                                <center>
+                                    <Link className="navbar-brand" to="/">
+                                        <img src={Logo} alt="RT" height='70px' />
+                                    </Link>
+                                </center>
+                            </div>
+                            <div className="row w-100">
+                                <div className="row row_one col-12 w-100">
+                                    {/* <form className="navbar-form">
                                     <div className="input-group">
                                         <input type="text" className="form-control" placeholder="Search" />
                                         <div className="input-group-btn">
@@ -86,102 +89,113 @@ export default class NavigationBar extends Component {
                                         </div>
                                     </div>
                                 </form> */}
-                                <ul className="navbar-nav horizontelNavItems">
-                                    {!sessionStorage.getItem('email') ? <li className="nav-item pr-5">
-                                        <Link className="nav-link" to='/login' onClick={this.handleModelShow} style={{ color: navFontColor }} >
-                                            <div className="font hotizontalNavSvg">
-                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" className="bi bi-door-open" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fillRule="evenodd" d="M1 15.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM11.5 2H11V1h.5A1.5 1.5 0 0 1 13 2.5V15h-1V2.5a.5.5 0 0 0-.5-.5z" />
-                                                    <path fillRule="evenodd" d="M10.828.122A.5.5 0 0 1 11 .5V15h-1V1.077l-6 .857V15H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117z" />
-                                                    <path d="M8 9c0 .552.224 1 .5 1s.5-.448.5-1-.224-1-.5-1-.5.448-.5 1z" />
-                                                </svg>
+                                    <ul className="navbar-nav horizontelNavItems">
+                                        {!sessionStorage.getItem('email') ? <li className="nav-item pr-5">
+                                            <Link className="nav-link" to='/login' onClick={this.handleModelShow} style={{ color: navFontColor }} >
+                                                <div className="font hotizontalNavSvg">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" className="bi bi-door-open" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fillRule="evenodd" d="M1 15.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM11.5 2H11V1h.5A1.5 1.5 0 0 1 13 2.5V15h-1V2.5a.5.5 0 0 0-.5-.5z" />
+                                                        <path fillRule="evenodd" d="M10.828.122A.5.5 0 0 1 11 .5V15h-1V1.077l-6 .857V15H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117z" />
+                                                        <path d="M8 9c0 .552.224 1 .5 1s.5-.448.5-1-.224-1-.5-1-.5.448-.5 1z" />
+                                                    </svg>
                                         Login</div>
-                                        </Link>
-                                    </li> : null}
-                                    {!sessionStorage.getItem('email') ? <li className="nav-item pr-3">
-                                        <Link className="nav-link" to="/register" style={{ color: navFontColor }}>
-                                            <div className="font hotizontalNavSvg">
-                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" className="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                                    <path fillRule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                                </svg>
+                                            </Link>
+                                        </li> : null}
+                                        {!sessionStorage.getItem('email') ? <li className="nav-item pr-3">
+                                            <Link className="nav-link" to="/register" style={{ color: navFontColor }}>
+                                                <div className="font hotizontalNavSvg">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" className="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                        <path fillRule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                                    </svg>
                                         Register</div>
-                                        </Link>
-                                    </li>
-                                        : null}
-                                    {sessionStorage.getItem('email') ?
-                                        <li className="nav-item pr-5">
-                                            <Link className="nav-link" onClick={this.handleLogout} style={{ color: navFontColor }} >
-                                                <div className="font">Logout</div>
                                             </Link>
                                         </li>
-                                        : null}
-                                </ul>
+                                            : null}
+                                        {sessionStorage.getItem('email') ?
+                                            <li className="nav-item pr-5">
+                                                <Link className="nav-link" onClick={this.handleLogout} style={{ color: navFontColor }} >
+                                                    <div className="font">Logout</div>
+                                                </Link>
+                                            </li>
+                                            : null}
+                                    </ul>
+                                </div>
+                                <div className="row w-100 col-12 mt-3">
+                                    <ul className="navbar-nav nav w-100 verticalNavItems">
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/" style={{ color: navFontColor }}>
+                                                <div className="font">
+                                                    <svg width="2em" height="2em" viewBox="0 0 16 16" className="bi bi-house" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fillRule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                                                        <path fillRule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                                                    </svg>
+                                                </div>
+                                            </Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="shop" style={{ color: navFontColor }}>
+                                                <div className="font">
+                                                    <svg width="2em" height="2em" viewBox="0 0 16 16" className="bi bi-shop-window" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fillRule="evenodd" d="M3.12 1.175A.5.5 0 0 1 3.5 1h9a.5.5 0 0 1 .38.175l2.759 3.219A1.5 1.5 0 0 1 16 5.37v.13h-1v-.13a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.13H0v-.13a1.5 1.5 0 0 1 .361-.976l2.76-3.22z" />
+                                                        <path d="M2.375 6.875c.76 0 1.375-.616 1.375-1.375h1a1.375 1.375 0 0 0 2.75 0h1a1.375 1.375 0 0 0 2.75 0h1a1.375 1.375 0 1 0 2.75 0h1a2.375 2.375 0 0 1-4.25 1.458 2.371 2.371 0 0 1-1.875.917A2.37 2.37 0 0 1 8 6.958a2.37 2.37 0 0 1-1.875.917 2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.5h1c0 .76.616 1.375 1.375 1.375z" />
+                                                        <path d="M4.75 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm3.75 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm3.75 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM2 8.854V15h12V8.854a3.354 3.354 0 0 0 1-.27V15h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V8.583c.311.14.647.232 1 .271zm0-1.008V7H1v.437c.291.207.632.35 1 .409zm13-.409c-.291.207-.632.35-1 .409V7h1v.437z" />
+                                                        <path d="M4 13V9H3v4a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V9h-1v4H4z" />
+                                                    </svg>
+                                                </div>
+                                            </Link>
+                                        </li>
+
+
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/page" style={{ color: navFontColor }}>
+                                                <div className="font">
+                                                    <svg width="2em" height="2em" viewBox="0 0 16 16" className="bi bi-file-earmark-break" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fillRule="evenodd" d="M9 1H4a2 2 0 0 0-2 2v6h1V3a1 1 0 0 1 1-1h5v2.5A1.5 1.5 0 0 0 10.5 6H13v3h1V6L9 1zm5 11h-1v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1H2v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1zM0 10.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
+                                                    </svg>
+                                                </div>
+                                            </Link>
+                                        </li>
+
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="about" style={{ color: navFontColor }}>
+                                                <div className="font">
+                                                    <svg width="2em" height="2em" viewBox="0 0 16 16" className="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fillRule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
+                                                        <circle cx="8" cy="4.5" r="1" />
+                                                    </svg>
+                                                </div>
+                                            </Link>
+                                        </li>
+
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/contact" style={{ color: navFontColor }}>
+                                                <div className="font">
+                                                    <svg width="2em" height="2em" viewBox="0 0 16 16" className="bi bi-headset" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fillRule="evenodd" d="M8 1a5 5 0 0 0-5 5v4.5H2V6a6 6 0 1 1 12 0v4.5h-1V6a5 5 0 0 0-5-5z" />
+                                                        <path d="M11 8a1 1 0 0 1 1-1h2v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V8zM5 8a1 1 0 0 0-1-1H2v4a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V8z" />
+                                                        <path fillRule="evenodd" d="M13.5 8.5a.5.5 0 0 1 .5.5v3a2.5 2.5 0 0 1-2.5 2.5H8a.5.5 0 0 1 0-1h3.5A1.5 1.5 0 0 0 13 12V9a.5.5 0 0 1 .5-.5z" />
+                                                        <path d="M6.5 14a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1z" />
+                                                    </svg>
+                                                </div>
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div className="row w-100 col-12 mt-3">
-                                <ul className="navbar-nav nav w-100 verticalNavItems">
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="/" style={{ color: navFontColor }}>
-                                            <div className="font">
-                                                <svg width="2em" height="2em" viewBox="0 0 16 16" className="bi bi-house" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fillRule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
-                                                    <path fillRule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
-                                                </svg>
-                                            </div>
-                                        </Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="shop" style={{ color: navFontColor }}>
-                                            <div className="font">
-                                                <svg width="2em" height="2em" viewBox="0 0 16 16" className="bi bi-shop-window" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fillRule="evenodd" d="M3.12 1.175A.5.5 0 0 1 3.5 1h9a.5.5 0 0 1 .38.175l2.759 3.219A1.5 1.5 0 0 1 16 5.37v.13h-1v-.13a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.13H0v-.13a1.5 1.5 0 0 1 .361-.976l2.76-3.22z" />
-                                                    <path d="M2.375 6.875c.76 0 1.375-.616 1.375-1.375h1a1.375 1.375 0 0 0 2.75 0h1a1.375 1.375 0 0 0 2.75 0h1a1.375 1.375 0 1 0 2.75 0h1a2.375 2.375 0 0 1-4.25 1.458 2.371 2.371 0 0 1-1.875.917A2.37 2.37 0 0 1 8 6.958a2.37 2.37 0 0 1-1.875.917 2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.5h1c0 .76.616 1.375 1.375 1.375z" />
-                                                    <path d="M4.75 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm3.75 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm3.75 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM2 8.854V15h12V8.854a3.354 3.354 0 0 0 1-.27V15h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V8.583c.311.14.647.232 1 .271zm0-1.008V7H1v.437c.291.207.632.35 1 .409zm13-.409c-.291.207-.632.35-1 .409V7h1v.437z" />
-                                                    <path d="M4 13V9H3v4a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V9h-1v4H4z" />
-                                                </svg>
-                                            </div>
-                                        </Link>
-                                    </li>
-                                    
-                                    
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="/page" style={{ color: navFontColor }}>
-                                            <div className="font">
-                                                <svg width="2em" height="2em" viewBox="0 0 16 16" className="bi bi-file-earmark-break" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fillRule="evenodd" d="M9 1H4a2 2 0 0 0-2 2v6h1V3a1 1 0 0 1 1-1h5v2.5A1.5 1.5 0 0 0 10.5 6H13v3h1V6L9 1zm5 11h-1v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1H2v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1zM0 10.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
-                                                </svg>
-                                            </div>
-                                        </Link>
-                                    </li>
+                        </nav>
 
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="about" style={{ color: navFontColor }}>
-                                            <div className="font">
-                                                <svg width="2em" height="2em" viewBox="0 0 16 16" className="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fillRule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                    <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
-                                                    <circle cx="8" cy="4.5" r="1" />
-                                                </svg>
-                                            </div>
-                                        </Link>
-                                    </li>
-
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="/contact" style={{ color: navFontColor }}>
-                                            <div className="font">
-                                                <svg width="2em" height="2em" viewBox="0 0 16 16" className="bi bi-headset" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fillRule="evenodd" d="M8 1a5 5 0 0 0-5 5v4.5H2V6a6 6 0 1 1 12 0v4.5h-1V6a5 5 0 0 0-5-5z" />
-                                                    <path d="M11 8a1 1 0 0 1 1-1h2v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V8zM5 8a1 1 0 0 0-1-1H2v4a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V8z" />
-                                                    <path fillRule="evenodd" d="M13.5 8.5a.5.5 0 0 1 .5.5v3a2.5 2.5 0 0 1-2.5 2.5H8a.5.5 0 0 1 0-1h3.5A1.5 1.5 0 0 0 13 12V9a.5.5 0 0 1 .5-.5z" />
-                                                    <path d="M6.5 14a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1z" />
-                                                </svg>
-                                            </div>
-                                        </Link>
-                                    </li>
-                                </ul>
+                        <div className="navContent">
+                            <div>
+                                <span>FRESH</span> from our <span>FARM</span> to your <span>CUP</span>
+                            </div>
+                            <div>
+                                <button className="btn btn-outline-dark welcomeBtn btn-disabled">Welcome</button>
                             </div>
                         </div>
-                    </nav>
+
+                    </div>
                     {/* <div className="vertical-nav"> */}
 
                     {/* <div className="font seatings">

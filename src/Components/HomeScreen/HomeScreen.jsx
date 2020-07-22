@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ControlledCarousel from './HomeComponents/ControlledCarousel';
+// import ControlledCarousel from './HomeComponents/ControlledCarousel';
 
 import Footer from '../Footer/Footer';
 // import styles from './Home.module.sass';
@@ -26,7 +26,17 @@ class HomeScreen extends Component {
                             Home
                     {console.log(sessionStorage.getItem('email'))}
                         </div>} */}
-                    <ControlledCarousel />
+                        <div>Home</div><br />
+                        <div>Home</div><br />
+                        <div>Home</div><br />
+                        <div>Home</div><br />
+                        <div>Home</div><br />
+                        <div>Home</div><br />
+                        <div>Home</div><br />
+                        <div>Home</div><br />
+                        <div>Home</div><br />
+                        <div>Home</div><br />
+                        <div>Home</div><br />
                 </div>
 
                 <footer style={{marginTop: "2rem" , marginBottom: "0rem" , padding: "0"}}>
