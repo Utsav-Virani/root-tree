@@ -1,0 +1,40 @@
+
+
+$navBarBgColor: #e9e9e9;
+
+.navBody {
+  background: $navBarBgColor;
+  height: 90%;
+  width: 100%;
+  .navContent {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    div {
+      font-size: 40px;
+      font-family: Montserrat, sans-serif;
+      line-height: 56px;
+      font-weight: 400px;
+      font-style: normal;
+      margin-bottom: 40px;
+      span {
+        font-family: MontserratBold, sans-serif;
+        font-weight: bold;
+      }
+    }
+    .welcomeBtn {
+      border-radius: 4px;
+      width: 152px;
+      height: 50px;
+      border: 1px solid #434343;
+      transition: 0.4s ease-in-out;
+      &:focus {
+        box-shadow: none;
+        border: 1px solid #434343;
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@ class Footer extends Component {
     render() {
         return (
             <div>
-                <div class={`${FooterStyle.footer} jumbotron`}>
+                <div className={`${FooterStyle.footer} jumbotron`}>
                     <center>
                         <div className="display-4">
                             FOOTER
