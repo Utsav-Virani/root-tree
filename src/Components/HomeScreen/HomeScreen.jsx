@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-// import ControlledCarousel from './HomeComponents/ControlledCarousel';
+import { Link } from "react-scroll";
 
 import Footer from '../Footer/Footer';
 import Styles from './Home.module.scss';
+import { TeamDetails } from './HomeComponents/TeamDetails';
 
 
 class HomeScreen extends Component {
@@ -20,32 +21,42 @@ class HomeScreen extends Component {
                 <div className={`${Styles.navBody}`}>
                     <div className={`${Styles.navContent}`}>
                         <div>
-                            <span>FRESH</span> from our <span>FARM</span> to your <span>CUP</span>
+                            <span>FRESH</span> from our <span>FARM</span> to your <span>KITCHEN</span>
                         </div>
                         <div>
-                            <button className={`${Styles.welcomeBtn} btn btn-outline-dark btn-disabled`}>Welcome</button>
+                            <button className={`${Styles.welcomeBtn} btn btn-outline-dark btn-disabled`}>
+                                <Link to="content1">Welcome</Link></button>
                         </div>
                     </div>
                 </div>
-                <div className="container mt-4">
-                    {/* {sessionStorage.getItem('email') ? <div className="container display-1 pl-5">
-                        Deshboard <br />
-                        {sessionStorage.getItem('email')}
-                    </div> : <div className="display-1 bg-secondary">
-                            Home
-                    {console.log(sessionStorage.getItem('email'))}
-                        </div>} */}
-                    <div>Home</div><br />
-                    <div>Home</div><br />
-                    <div>Home</div><br />
-                    <div>Home</div><br />
-                    <div>Home</div><br />
-                    <div>Home</div><br />
-                    <div>Home</div><br />
-                    <div>Home</div><br />
-                    <div>Home</div><br />
-                    <div>Home</div><br />
-                    <div>Home</div><br />
+
+                <div className={`${Styles.content} display-4 container`} id="content1">
+                    {/* <div className="container"> */}
+                        <span>The Worlds Finest Vegies</span>
+                        <div>
+                            Thank you for visiting us at root tree, small local business for all your farm-fresh products needs delivering straight to your door.
+                            Our experience goes far beyond.
+                            The best investment you can ever make in your HEALTH
+                            Stay Fresh, Stay Healthy
+                    </div>
+                    {/* </div> */}
+                </div>
+                <div className={`${Styles.mission} container-fluid`}>
+                    <div className={`${Styles.missionContent} container`}>
+                        <span>Mission</span>
+                        <div className="mt-2">
+                            We provide a full range of services to ensure the sustainable growth of our company.
+                            Our team of highly trained and experienced specialists with a deep understanding of all business aspects and perfect knowledge of the process always drive us to easily solve various challenges.
+                        </div>
+                        <div>
+                            Our mission is to impress our clients with unique and innovative solutions, along with an individual approach, and exceptional customer support services.
+                        </div>
+                    </div>
+                </div>
+
+                <div className={`${Styles.ourTeam} container`}>
+                    <div className={`${Styles.txt}`}>Our Team</div>
+                    <TeamDetails />
                 </div>
 
                 <footer style={{ marginTop: "2rem", marginBottom: "0rem", padding: "0" }}>

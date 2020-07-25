@@ -1,0 +1,48 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .col1 {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .content:hover .contentInner {
+    transform: rotateY(180deg);
+  }
+  .contentInner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+    background: #d1d1d1;
+    width: 20rem;
+    height: 20rem;
+    flex-flow: column;
+    perspective: 1000px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.2);
+
+    .cardFront,
+    .cardBack {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+
+    .cardFront{
+        font-size: 26px;
+    }
+    .cardBack {
+      transform: rotateY(180deg);
+    }
+  }
+}
