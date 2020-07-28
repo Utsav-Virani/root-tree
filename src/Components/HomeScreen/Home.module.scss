@@ -74,6 +74,25 @@ $navBarBgColor: #e9e9e9;
       font-size: 32px;
     }
   }
+
+  .missionContentLoad{
+    padding-left: 10rem;
+    padding-right: 15rem;
+    animation: loadMission .6s linear forwards;
+    span{
+      // font-weight: bold;
+      font-size: 32px;
+    }
+  }
+}
+
+@keyframes loadMission{
+  from{
+    transform: translateY(100px);
+  }
+  to{
+    transform: translateY(0px);
+  }
 }
 
 .ourTeam{

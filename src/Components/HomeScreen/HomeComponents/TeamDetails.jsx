@@ -3,6 +3,8 @@ import Style from './TeamDetails.module.scss';
 
 import uvImg from '../../../Assets/images/logo/UV.png'
 import sahilImg from '../../../Assets/images/logo/Sahil.png'
+import nancyImg from '../../../Assets/images/logo/Nancy.png'
+import krupaliImg from '../../../Assets/images/logo/Krupali.png'
 
 export const TeamDetails = () => {
     return (
@@ -25,7 +27,7 @@ export const TeamDetails = () => {
                         <div className={`${Style.content}`}>
                             <div className={`${Style.contentInner}`}>
                                 <div className={`${Style.cardFront}`}>
-                                    <img src={uvImg} height="200px" className="mb-4" width="200px" alt="" />
+                                    <img src={nancyImg} height="200px" className="mb-4" width="200px" alt="" />
                                     Nancy Gevariya
                                 </div>
                                 <div className={`${Style.cardBack}`}>
@@ -40,7 +42,7 @@ export const TeamDetails = () => {
                         <div className={`${Style.content}`}>
                             <div className={`${Style.contentInner}`}>
                                 <div className={`${Style.cardFront}`}>
-                                    <img src={uvImg} height="200px" className="mb-4" width="200px" alt="" />
+                                    <img src={krupaliImg} height="200px" className="mb-4" width="200px" alt="" />
                                     Krupali Gevariya
                                 </div>
                                 <div className={`${Style.cardBack}`}>
