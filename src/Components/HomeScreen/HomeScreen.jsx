@@ -3,7 +3,8 @@ import { Link } from "react-scroll";
 
 import Footer from '../Footer/Footer';
 import Styles from './Home.module.scss';
-import { TeamDetails } from './HomeComponents/TeamDetails';
+import TeamDetails from './HomeComponents/TeamDetails';
+import Fruits from './Products/Fruits';
 
 
 class HomeScreen extends Component {
@@ -32,15 +33,23 @@ class HomeScreen extends Component {
 
                 <div className={`${Styles.content} display-4 container`} id="content1">
                     {/* <div className="container"> */}
-                        <span>The Worlds Finest Vegies</span>
-                        <div>
-                            Thank you for visiting us at root tree, small local business for all your farm-fresh products needs delivering straight to your door.
-                            Our experience goes far beyond.
-                            The best investment you can ever make in your HEALTH
-                            Stay Fresh, Stay Healthy
+                    <span>The Worlds Finest Vegies</span>
+                    <div>
+                        Thank you for visiting us at root tree, small local business for all your farm-fresh products needs delivering straight to your door.
+                        Our experience goes far beyond.
+                        The best investment you can ever make in your HEALTH
+                        Stay Fresh, Stay Healthy
                     </div>
                     {/* </div> */}
                 </div>
+
+                <div className={`${Styles.fruits}`}>
+                    <div className={`${Styles.fruitsContent} container`} >
+                        <div className={`${Styles.txt}`}>Healthy & Fresh <span>Fruites</span></div>
+                        <Fruits />
+                    </div>
+                </div>
+
                 <div className={`${Styles.mission} container-fluid`}>
                     <div className={`${Styles.missionContent} container`}>
                         <span>Mission</span>
