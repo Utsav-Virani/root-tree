@@ -70,7 +70,6 @@ class TeamDetails extends React.Component {
                                         <div className={`${Style.col1} col-6 d-flex`}>
                                             <Details img={data.img} name={data.name} position={data.position} />
                                         </div>
-                                        {console.log(data)}
                                     </>
                             )
                         }
