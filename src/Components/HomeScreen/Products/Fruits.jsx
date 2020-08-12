@@ -2,17 +2,32 @@ import React, { Component } from 'react';
 const firebase = require('firebase');
 
 class Fruits extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            imgUrl: ""
+        }
+    }
+
     render() {
 
-        const ref = firebase.storage().ref('Products/P0.png');
-        const url = ref.getDownloadURL();
-        console.log(url);
+        const storage = firebase.storage().ref();
 
+        const img = storage.child(`Products/P0.png`).getDownloadURL().then((url) => {
+            this.setState({ imgUrl: url });
+        }).catch((error)=> {console.log(error);})
 
         return (
-            <div>
-                Fruits
-            </div>
+            <React.Fragment>
+                <div>
+                    Fruits
+                    <div className="container">
+                        {/* <img src={this.state.imgUrl} alt=""/> */}
+                        {/* <img src="" alt="img"/> */}
+                    </div>
+                </div>
+            </React.Fragment>
         );
     }
 }
