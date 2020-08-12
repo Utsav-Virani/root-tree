@@ -1,0 +1,18 @@
+.vegisContainer {
+  .items {
+    background: #676767;
+    height: 300px;
+    width: 100%;
+    border-radius: 20px;
+    transition: ease-in-out 0.3s;
+    &:hover {
+      background: #434343;
+      box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);
+
+      transform: scale(1.05);
+    }
+  }
+  .row2 {
+    margin-top: 2rem;
+  }
+}

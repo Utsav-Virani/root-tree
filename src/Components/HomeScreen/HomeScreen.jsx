@@ -5,6 +5,8 @@ import Footer from '../Footer/Footer';
 import Styles from './Home.module.scss';
 import TeamDetails from './HomeComponents/TeamDetails';
 import Fruits from './Products/Fruits';
+import Vegis from './Products/Vegis';
+import ChooseProduct from './Products/ChooseProduct';
 
 
 class HomeScreen extends Component {
@@ -43,10 +45,29 @@ class HomeScreen extends Component {
                     {/* </div> */}
                 </div>
 
+                <div className="container-fluid">
+                    <div className={`${Styles.cyp} container`}>
+                        <div className={`${Styles.txt}`}>Choose Your Product</div>
+                         <ChooseProduct />
+                    </div>
+                </div>
+
+                <div className="container">
+                    <div className={`${Styles.ConData}`}>
+                        <div>Partner with the best in tea sourcing & processing</div>
+                    </div>
+                </div>
+
                 <div className={`${Styles.fruits}`}>
-                    <div className={`${Styles.fruitsContent} container`} >
+                    <div className={`${Styles.fruitsContent} container-fluid`} >
                         <div className={`${Styles.txt}`}>Healthy & Fresh <span>Fruites</span></div>
                         <Fruits />
+                    </div>
+                </div>
+                <div className={`${Styles.vegis}`}>
+                    <div className={`${Styles.vegisContent} container`}>
+                        <div className={`${Styles.txt}`}>Gallery of <span>Vegis</span></div>
+                        <Vegis />
                     </div>
                 </div>
 

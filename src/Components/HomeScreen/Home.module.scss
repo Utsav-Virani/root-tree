@@ -106,10 +106,22 @@ $navBarBgColor: #e9e9e9;
     font-size: 40px;
   }
 }
+.cyp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  margin-bottom: 5rem;
+  font-family: Montserrat;
+  .txt {
+    font-size: 40px;
+    margin-bottom: 2rem;
+  }
+}
 
 .fruits {
   font-family: Montserrat;
-  background: #e9e9e9;
+  // background: #e9e9e9;
   padding: 2rem 0;
   .fruitsContent {
     display: flex;
@@ -120,6 +132,25 @@ $navBarBgColor: #e9e9e9;
       margin-bottom: 2rem;
       font-size: 40px;
       border-bottom: rgba($color: #434343, $alpha: 0.7) solid;
+      span {
+        font-family: MontserratBold;
+      }
+    }
+  }
+}
+
+.vegis {
+  font-family: Montserrat;
+  padding: 3rem 0;
+  margin-top: 2rem;
+  .vegisContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    .txt {
+      font-size: 40px;
+      margin-bottom: 3rem;
       span {
         font-family: MontserratBold;
       }
