@@ -7,7 +7,7 @@ import TeamDetails from './HomeComponents/TeamDetails';
 import Fruits from './Products/Fruits';
 import Vegis from './Products/Vegis';
 import ChooseProduct from './Products/ChooseProduct';
-
+import Dry from './Products/Dry'
 
 class HomeScreen extends Component {
 
@@ -52,11 +52,11 @@ class HomeScreen extends Component {
                     </div>
                 </div>
 
-                <div className="container">
+                {/* <div className="container">
                     <div className={`${Styles.ConData}`}>
                         <div>Partner with the best in tea sourcing & processing</div>
                     </div>
-                </div>
+                </div> */}
 
                 <div className={`${Styles.fruits}`}>
                     <div className={`${Styles.fruitsContent} container-fluid`} >
@@ -68,6 +68,13 @@ class HomeScreen extends Component {
                     <div className={`${Styles.vegisContent} container`}>
                         <div className={`${Styles.txt}`}>Gallery of <span>Vegis</span></div>
                         <Vegis />
+                    </div>
+                </div>
+
+                <div className={`${Styles.dry}`}>
+                    <div className={`${Styles.dryContent} container`}>
+                        <div className={`${Styles.txt}`}>Fresh <span>Dairy</span></div>
+                        <Dry />
                     </div>
                 </div>
 

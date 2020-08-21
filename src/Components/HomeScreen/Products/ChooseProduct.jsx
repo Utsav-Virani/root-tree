@@ -21,7 +21,7 @@ class ChooseProduct extends Component {
                     <div className={`${Styles.row2} row`}>
                         <div className="col-md-6">
                             <div className={`${Styles.item}`}>
-                                <div className={`${Styles.innerTxt}`}>Dary</div>
+                                <div className={`${Styles.innerTxt}`}>Dairy</div>
                             </div>
                         </div>
                         <div className="col-md-6">
