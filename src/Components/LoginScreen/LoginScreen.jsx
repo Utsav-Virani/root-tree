@@ -4,7 +4,7 @@ import LoginStyle from './LoginScreen.module.scss';
 import { AuthContext } from '../../FireBaseControler/AuthenticationProvider';
 import config from '../../FireBaseControler/firebaseConfig';
 import GoogleLogo from '../../Assets/images/logo/googleLogo2.png';
-import firebase from 'firebase';
+// import firebase from 'firebase';
 
 const LoginScreen = ({ history }) => {
 
@@ -12,7 +12,7 @@ const LoginScreen = ({ history }) => {
 
     const handleFormSubmit = useCallback(
         async event => {
-            // event.preventDefault();
+            event.preventDefault();
             const { email, password } = event.target.elements;
             sessionStorage.setItem('email', email.value);
             try {
@@ -28,21 +28,21 @@ const LoginScreen = ({ history }) => {
         [history]
     );
 
-    const handleGoogleSignIn = () => {
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider).then(function (result) {
-            // var token = result.credential.accessToken;
-            var user = result.user;
-            console.log(user);
-            sessionStorage.setItem('email', user.email);
-        }).catch(function (error) {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            var email = error.email;
-            var credential = error.credential;
-            alert(errorCode + "\n" + errorMessage + "\n" + email + "\n" + credential);
-        });
-    }
+    // const handleGoogleSignIn = () => {
+    //     var provider = new firebase.auth.GoogleAuthProvider();
+    //     firebase.auth().signInWithPopup(provider).then(function (result) {
+    //         // var token = result.credential.accessToken;
+    //         var user = result.user;
+    //         console.log(user);
+    //         sessionStorage.setItem('email', user.email);
+    //     }).catch(function (error) {
+    //         var errorCode = error.code;
+    //         var errorMessage = error.message;
+    //         var email = error.email;
+    //         var credential = error.credential;
+    //         alert(errorCode + "\n" + errorMessage + "\n" + email + "\n" + credential);
+    //     });
+    // }
 
     const { currentUser } = useContext(AuthContext);
 
@@ -127,14 +127,14 @@ const LoginScreen = ({ history }) => {
                                     </div>
                                     <button type="submit" className="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign in</button>
                                 </form>
-                                <div className="d-flex justify-content-between mt-4">
+                                {/* <div className="d-flex justify-content-between mt-4">
                                     <div
                                         className={`${LoginStyle.googleLogo}`}
                                         onClick={handleGoogleSignIn}
                                     >
                                         <img src={GoogleLogo} height="50px" alt="" />
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className="text-center d-flex justify-content-between mt-4">
                                     <p>
                                         <a href=" " className={`${LoginStyle.needHelpColor} font-italic`}>

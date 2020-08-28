@@ -9,6 +9,8 @@ import Vegis from './Products/Vegis';
 import ChooseProduct from './Products/ChooseProduct';
 import Dry from './Products/Dry'
 
+// import { dataBase, storage } from '../../FireBaseControler/firebaseConfig';
+
 class HomeScreen extends Component {
 
     constructor() {
@@ -48,7 +50,7 @@ class HomeScreen extends Component {
                 <div className="container-fluid">
                     <div className={`${Styles.cyp} container`}>
                         <div className={`${Styles.txt}`}>Choose Your Product</div>
-                         <ChooseProduct />
+                        <ChooseProduct />
                     </div>
                 </div>
 

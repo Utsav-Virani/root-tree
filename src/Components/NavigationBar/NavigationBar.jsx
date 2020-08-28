@@ -28,7 +28,7 @@ export default class NavigationBar extends Component {
             isOpen: false,
             setIsOpen: false,
             svgColor: "#ecf0f1",
-            pathname: ""
+            pathname: "",
         }
     }
 
@@ -58,8 +58,6 @@ export default class NavigationBar extends Component {
     render() {
 
         let navFontColor = "#343A40";
-
-
         // window.location.reload(true);
 
         return (
