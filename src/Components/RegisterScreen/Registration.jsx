@@ -4,7 +4,6 @@ import SignUpStyle from './SignUp.module.scss';
 import { AuthContext } from '../../FireBaseControler/AuthenticationProvider';
 import config from '../../FireBaseControler/firebaseConfig';
 import {dataBase} from '../../FireBaseControler/firebaseConfig';
-import { error } from 'jquery';
 
 const Registration = ({ history }) => {
 
@@ -18,7 +17,7 @@ const Registration = ({ history }) => {
                     .auth()
                     .createUserWithEmailAndPassword(email.value, password.value);
 
-                const db = dataBase.collection("user").add({
+                dataBase.collection("user").add({
                     "email": email.value,
                     "pass" : password.value,
                 }).then(docRef => console.log(docRef.id))

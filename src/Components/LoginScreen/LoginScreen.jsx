@@ -3,7 +3,7 @@ import { withRouter, Redirect } from 'react-router';
 import LoginStyle from './LoginScreen.module.scss';
 import { AuthContext } from '../../FireBaseControler/AuthenticationProvider';
 import config from '../../FireBaseControler/firebaseConfig';
-import GoogleLogo from '../../Assets/images/logo/googleLogo2.png';
+// import GoogleLogo from '../../Assets/images/logo/googleLogo2.png';
 // import firebase from 'firebase';
 
 const LoginScreen = ({ history }) => {

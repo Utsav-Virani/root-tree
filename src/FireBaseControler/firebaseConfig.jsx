@@ -15,5 +15,5 @@ const config = firebase.initializeApp(firebaseConfig);
 
 const storage = config.storage();
 
-const dataBase = config.firestore();
+const dataBase = config.database();
 export { storage, dataBase, config as default };
