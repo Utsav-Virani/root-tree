@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import Styles from './Style.module.scss';
+import Styles from './Fruits.module.scss';
 import { dataBase } from '../../../FireBaseControler/firebaseConfig'
 
 import P0 from '../../../Assets/images/products/P0.png';
 import P1 from '../../../Assets/images/products/P1.png';
 import P2 from '../../../Assets/images/products/P2.png';
 import P3 from '../../../Assets/images/products/p3.png';
-import P4 from '../../../Assets/images/products/p4.png';
+import P4 from '../../../Assets/images/products/P5.png';
 
 const Fruits = () => {
 
@@ -50,11 +50,21 @@ const Fruits = () => {
                     {/* <img src={img[0].data().imgUrl} alt=""/> */}
                     {/* <img src="" alt="img"/> */}
                     <div className={`${Styles.frtContainer} p-3 w-100 h-100`}>
-                        <div style={{ height: "200px", width: "200px", borderRadius: "15px" }} className={`${Styles.items}`}></div>
-                        <div style={{ height: "200px", width: "200px", borderRadius: "15px" }} className={`${Styles.items}`}></div>
-                        <div style={{ height: "200px", width: "200px", borderRadius: "15px" }} className={`${Styles.items}`}></div>
-                        <div style={{ height: "200px", width: "200px", borderRadius: "15px" }} className={`${Styles.items}`}></div>
-                        <div style={{ height: "200px", width: "200px", borderRadius: "15px" }} className={`${Styles.items}`}></div>
+                        <div style={{ height: "200px", width: "200px", borderRadius: "15px" }} className={`${Styles.items}`}>
+                            <img src={P0} alt="" ></img>
+                        </div>
+                        <div style={{ height: "200px", width: "200px", borderRadius: "15px" }} className={`${Styles.items}`}>
+                            <img src={P1} alt="" ></img>
+                        </div>
+                        <div style={{ height: "200px", width: "200px", borderRadius: "15px" }} className={`${Styles.items}`}>
+                            <img src={P2} alt="" ></img>
+                        </div>
+                        <div style={{ height: "200px", width: "200px", borderRadius: "15px" }} className={`${Styles.items}`}>
+                            <img src={P3} alt="" ></img>
+                        </div>
+                        <div style={{ height: "200px", width: "200px", borderRadius: "15px" }} className={`${Styles.items}`}>
+                            <img src={P4} alt="" ></img>
+                        </div>
                     </div>
                 </div>
             </div>
