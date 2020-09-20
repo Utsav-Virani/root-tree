@@ -1,35 +1,45 @@
-.copContainer{
+.copContainer {
+  width: 100%;
+  height: 100%;
+  .row2 {
+    margin-top: 2rem;
+  }
+  .item {
+    background: #767676;
+    height: 450px;
     width: 100%;
-    height: 100%;
-    .row2{
-        margin-top: 2rem;
+    border-radius: 20px;
+    transition: ease-in-out 0.3s;
+    overflow: hidden;
+    img {
+      height: 550px;
+      width: 700px;
+      filter: brightness(0.45);
+      transition: 0.4s ease-in-out;
     }
-    .item{
-        display: flex;
-        align-items: center;
-        justify-content: center;        
-        background: #767676;
-        height: 450px;
-        width: 100%;
-        border-radius: 20px;
-        transition: ease-in-out 0.3s;
-        &:hover{
-            background: #434343;
-            transform: scale(1.024);
-            .innerTxt{
-                color: whitesmoke;
-            }
-        }
 
-        .innerTxt{
-            // color: whitesmoke;
-            // font-family: MontserratBold;
-            font-size: 50px;
-        }
+    &:hover {
+      background: #434343;
+      transform: scale(1.024);
+      img{
+          filter: brightness(0.3);
+      }
     }
+
+    .innerTxt {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: whitesmoke;
+    //   font-family: MontserratBold;
+      font-size: 50px;
+      z-index: 10;
+    }
+  }
 }
 
 @font-face {
-    font-family: MontserratBold;
-    src: url("../../../Assets/Fonts/Montserrat-Bold.ttf");
-  }
+  font-family: MontserratBold;
+  src: url("../../../Assets/Fonts/Montserrat-Bold.ttf");
+}

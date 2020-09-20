@@ -2,11 +2,16 @@ import React, { useState } from 'react';
 import Styles from './Fruits.module.scss';
 import { dataBase } from '../../../FireBaseControler/firebaseConfig'
 
-import P0 from '../../../Assets/images/products/P0.png';
-import P1 from '../../../Assets/images/products/P1.png';
-import P2 from '../../../Assets/images/products/P2.png';
-import P3 from '../../../Assets/images/products/p3.png';
-import P4 from '../../../Assets/images/products/P5.png';
+// import P0 from '../../../Assets/images/products/P0.png';
+import P0 from '../../../Assets/images/Prouduct/grapes.webp';
+import P1 from '../../../Assets/images/Prouduct/custard-apple.webp';
+import P2 from '../../../Assets/images/Prouduct/guava.webp';
+import P3 from '../../../Assets/images/Prouduct/orange.webp';
+import P4 from '../../../Assets/images/Prouduct/avocado.webp';
+// import P1 from '../../../Assets/images/products/P1.png';
+// import P2 from '../../../Assets/images/products/P2.png';
+// import P3 from '../../../Assets/images/products/p3.png';
+// import P4 from '../../../Assets/images/products/P5.png';
 
 const Fruits = () => {
 
