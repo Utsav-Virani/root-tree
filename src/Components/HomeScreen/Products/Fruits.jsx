@@ -7,7 +7,7 @@ import P0 from '../../../Assets/images/Prouduct/grapes.webp';
 import P1 from '../../../Assets/images/Prouduct/custard-apple.webp';
 import P2 from '../../../Assets/images/Prouduct/guava.webp';
 import P3 from '../../../Assets/images/Prouduct/orange.webp';
-import P4 from '../../../Assets/images/Prouduct/avocado.webp';
+import P4 from '../../../Assets/images/Prouduct/avocado.webp'
 // import P1 from '../../../Assets/images/products/P1.png';
 // import P2 from '../../../Assets/images/products/P2.png';
 // import P3 from '../../../Assets/images/products/p3.png';
@@ -64,6 +64,7 @@ const Fruits = () => {
                         <div style={{ height: "200px", width: "200px", borderRadius: "15px" }} className={`${Styles.items}`}>
                             <img src={P2} alt="" ></img>
                         </div>
+                        
                         <div style={{ height: "200px", width: "200px", borderRadius: "15px" }} className={`${Styles.items}`}>
                             <img src={P3} alt="" ></img>
                         </div>

@@ -13,7 +13,7 @@ class Details extends React.Component {
             < div className={`${Style.content}`}>
                 <div className={`${Style.contentInner}`} >
                     <div className={`${Style.cardFront}`}>
-                        <img src={this.props.img} height="200px" className="mb-4" width="200px" alt="" />
+                        <img src={this.props.img} height="150px" className="mb-4" width="150px" alt="" />
                         {this.props.name}
                     </div>
                     <div className={`${Style.cardBack}`}>
@@ -67,7 +67,7 @@ class TeamDetails extends React.Component {
                             this.state.teamDetail.map(
                                 data =>
                                     <>
-                                        <div className={`${Style.col1} col-6 d-flex`}>
+                                        <div className={`${Style.col1} col-3 d-flex`}>
                                             <Details img={data.img} name={data.name} position={data.position} />
                                         </div>
                                     </>

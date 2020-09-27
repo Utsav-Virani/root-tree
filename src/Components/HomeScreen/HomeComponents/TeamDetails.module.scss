@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3rem 0;
+  // margin-bottom: 2rem 0;
 
   .col1 {
     display: flex;
@@ -18,10 +18,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 3rem 0;
+    margin: 2rem 0;
     background: #d1d1d1;
-    width: 20rem;
-    height: 20rem;
+    width: 15rem;
+    height: 15rem;
     flex-flow: column;
     perspective: 1000px;
     transition: transform 0.6s;

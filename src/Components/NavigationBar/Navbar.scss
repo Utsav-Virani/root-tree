@@ -32,9 +32,9 @@ $navFontColor: #434343;
   display: flex;
   justify-content: center;
   svg {
-    transition: ease-in-out 1s;
+    transition: ease-in-out .4s;
     &:hover {
-      transform: rotate(180deg);
+      transform: scale(1.1);
     }
   }
 }

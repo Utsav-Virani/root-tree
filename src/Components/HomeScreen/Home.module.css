@@ -1,0 +1,290 @@
+.navBody {
+  background: #e9e9e9;
+  height: 90%;
+  width: 100%;
+}
+
+.navBody .navContent {
+  width: 100%;
+  height: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.navBody .navContent div {
+  font-size: 40px;
+  font-family: Montserrat, sans-serif;
+  line-height: 56px;
+  font-weight: 400px;
+  font-style: normal;
+  margin-bottom: 40px;
+}
+
+.navBody .navContent div span {
+  font-family: MontserratBold, sans-serif;
+  font-weight: bold;
+}
+
+.navBody .navContent .welcomeBtn {
+  border-radius: 4px;
+  width: 152px;
+  height: 50px;
+  border: 1px solid #434343;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+}
+
+.navBody .navContent .welcomeBtn:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 1px solid #434343;
+}
+
+.content {
+  height: 25rem;
+  width: 100%;
+  margin-top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  font-family: Montserrat;
+  font-size: 20px;
+  padding: 0 10rem;
+}
+
+.content span {
+  font-size: 40px;
+  margin-bottom: 2rem;
+  border-bottom: rgba(67, 67, 67, 0.7) solid;
+}
+
+.mission {
+  height: 20rem;
+  width: 100%;
+  margin-top: 2rem;
+  background: #e9e9e9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: Montserrat;
+}
+
+.mission .missionContent {
+  padding-left: 10rem;
+  padding-right: 15rem;
+}
+
+.mission .missionContent span {
+  font-size: 32px;
+}
+
+.mission .missionContentLoad {
+  padding-left: 10rem;
+  padding-right: 15rem;
+  -webkit-animation: loadMission 0.6s linear forwards;
+          animation: loadMission 0.6s linear forwards;
+}
+
+.mission .missionContentLoad span {
+  font-size: 32px;
+}
+
+@-webkit-keyframes loadMission {
+  from {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+  to {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@keyframes loadMission {
+  from {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+  to {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+.ourTeam {
+  height: 50rem;
+  margin-top: 7rem;
+  margin-bottom: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  font-family: Montserrat;
+}
+
+.ourTeam .txt {
+  font-size: 40px;
+}
+
+.cyp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  margin-bottom: 5rem;
+  font-family: Montserrat;
+}
+
+.cyp .txt {
+  font-size: 40px;
+  margin-bottom: 2rem;
+}
+
+.fruits {
+  font-family: Montserrat;
+  padding: 2rem 0;
+}
+
+.fruits .fruitsContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.fruits .fruitsContent .txt {
+  margin-bottom: 2rem;
+  font-size: 40px;
+  border-bottom: rgba(67, 67, 67, 0.7) solid;
+}
+
+.fruits .fruitsContent .txt span {
+  font-family: MontserratBold;
+}
+
+.vegis {
+  font-family: Montserrat;
+  padding: 3rem 0;
+  margin-top: 2rem;
+}
+
+.vegis .vegisContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.vegis .vegisContent .txt {
+  font-size: 40px;
+  margin-bottom: 3rem;
+}
+
+.vegis .vegisContent .txt span {
+  font-family: MontserratBold;
+}
+
+.dry {
+  font-family: Montserrat;
+  padding: 3rem 0;
+  margin-top: 2rem;
+}
+
+.dry .dryContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.dry .dryContent .txt {
+  font-size: 40px;
+  margin-bottom: 3rem;
+}
+
+.dry .dryContent .txt span {
+  font-family: MontserratBold;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("../../Assets/Fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: MontserratBold;
+  src: url("../../Assets/Fonts/Montserrat-Bold.ttf");
+}
+/*# sourceMappingURL=Home.module.css.map */

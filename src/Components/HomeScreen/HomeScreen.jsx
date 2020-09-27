@@ -29,8 +29,10 @@ class HomeScreen extends Component {
                             <span>FRESH</span> from our <span>FARM</span> to your <span>KITCHEN</span>
                         </div>
                         <div>
-                            <button className={`${Styles.welcomeBtn} btn btn-outline-dark btn-disabled`}>
-                                <Link to="content1">Welcome</Link></button>
+                            {!sessionStorage.getItem('name') ? <button className={`${Styles.welcomeBtn} btn btn-outline-dark btn-disabled`}>
+                                <Link to="content1">Welcome</Link></button> : <button className={`${Styles.welcomeBtn} btn btn-outline-dark btn-disabled`}>
+        <Link to="content1">Welcome, {sessionStorage.getItem('name')}</Link></button>}
+
                         </div>
                     </div>
                 </div>
@@ -98,7 +100,7 @@ class HomeScreen extends Component {
                     <TeamDetails />
                 </div>
 
-                <footer style={{ marginTop: "2rem", marginBottom: "0rem", padding: "0" }}>
+                <footer style={{ marginTop: "0rem", marginBottom: "0rem", padding: "0" }}>
                     <Footer />
                 </footer>
 

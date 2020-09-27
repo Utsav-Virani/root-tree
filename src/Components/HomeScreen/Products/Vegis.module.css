@@ -1,0 +1,27 @@
+.vegisContainer .items {
+  height: 300px;
+  width: 100%;
+  border-radius: 20px;
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
+}
+
+.vegisContainer .items img {
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  -webkit-box-shadow: 2px 2px 10px 0px #CACFD2;
+          box-shadow: 2px 2px 10px 0px #CACFD2;
+}
+
+.vegisContainer .items:hover {
+  -webkit-filter: brightness(0.9);
+          filter: brightness(0.9);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.vegisContainer .row2 {
+  margin-top: 2rem;
+}
+/*# sourceMappingURL=Vegis.module.css.map */
