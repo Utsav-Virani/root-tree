@@ -37,10 +37,13 @@
       align-items: center;
       flex-flow: column;
       transition: all 0.4s ease;
-    }
-    &:hover {
-      .itm {
-        transform: scale(1.2);
+      svg {
+        transition: all 0.4s ease;
+      }
+      &:hover {
+        svg {
+          transform: scale(1.2);
+        }
       }
     }
   }
