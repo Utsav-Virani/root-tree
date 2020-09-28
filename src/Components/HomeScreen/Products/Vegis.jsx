@@ -31,6 +31,7 @@ export default function Vegis() {
 
     const [show, setShow] = useState(false);
     const [file, setFile] = useState(null);
+    const [progress, setProgress] = useState("hidden");
 
     const handleClose = () => setShow(false);
 
@@ -43,11 +44,31 @@ export default function Vegis() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const [name, price] = event.target.elements;
-        dataBase.collection('Product').add({
-            "name" : name.value,
-            "privce" : price.value,
-            "photo" : file.name,
-        })
+
+        // Create a root reference
+        var storageRef = storage.ref(`Products/${file.name}`);
+        var task = storageRef.put(file);
+        setProgress("visible")
+        task.on(
+            'state_changed',
+            function progress(snap) {
+                var per = (snap.bytesTransferred / snap.totalBytes) * 100;
+                document.getElementById('uploader').value = per;
+            },
+            function error(err) {
+                alert(err)
+            },
+            function complete() {
+                storage.ref().child(`Products/${file.name}`).getDownloadURL().then(url => {
+                    dataBase.collection('Product').add({
+                        "name": name.value,
+                        "price": price.value,
+                        "photo": url,
+                    });
+                })
+            }
+        );
+
     }
 
 
@@ -161,7 +182,7 @@ export default function Vegis() {
                                     className={`${Styles.formGroupControl} form-control`}
                                 />
                             </div>
-                            <div className="form-group mb-3 w-100 d-flex justify-content-center align-items-center">
+                            <div style={{ flexFlow: "column" }} className="form-group mb-3 w-100 d-flex justify-content-center align-items-center">
                                 {/* <input
                                     id="img"
                                     type="te"
@@ -180,6 +201,7 @@ export default function Vegis() {
                                     onChange={handleUploadChange}
                                     className={` mt-3 ${Styles.formGroupControlFile}`}
                                 />
+                                <progress style={{ visibility: progress }} className={`mt-3 ${Styles.uploader}`} value="0" max="100" id="uploader">0%</progress>
                             </div>
                             <button
                                 type="submit"

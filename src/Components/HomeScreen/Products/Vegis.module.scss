@@ -105,6 +105,11 @@ $borderColor: #424242;
   }
 }
 
+.uploader{
+  appearance: none;
+  width: 50%;
+}
+
 @keyframes moveanimation {
   0% {
     $num: random(
