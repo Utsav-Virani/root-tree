@@ -1,0 +1,33 @@
+.shopCont {
+  //   background: darkcyan;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 2%;
+  .fruitCont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    .FruitHead {
+      font-size: 40px;
+      border-bottom: #454545 solid 3px;
+    }
+    .froutImgCont {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: row wrap;
+      margin: 1rem 2rem;
+
+      .frtProduct{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        
+      }
+    }
+  }
+}
