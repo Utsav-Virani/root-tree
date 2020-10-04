@@ -22,8 +22,11 @@ const Registration = ({ history }) => {
                     "email": email.value,
                     "pass": password.value,
                     "admin": false,
-                }).then(docRef => console.log(docRef.id))
-                    .catch(error => console.log(error))
+                }).then(
+                    doc => {
+                        sessionStorage.setItem('userId', doc.id);
+                    }).catch(error => console.log(error))
+
 
                 sessionStorage.setItem('email', email.value);
                 // if(email.value === "admin@gmail.com"){
@@ -31,7 +34,7 @@ const Registration = ({ history }) => {
                 // }else{
                 sessionStorage.setItem('admin', false);
                 // }
-                sessionStorage.setItem('name', fname.value + " " + lname.value);
+                sessionStorage.setItem('name', fname.value);
                 history.push('/');
             } catch (error) {
                 alert(error);
@@ -43,7 +46,6 @@ const Registration = ({ history }) => {
     const { currentUser } = useContext(AuthContext);
 
     if (currentUser) {
-        console.log(currentUser);
         return <Redirect to="/" />;
     }
     return (

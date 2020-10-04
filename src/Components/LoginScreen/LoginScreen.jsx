@@ -21,10 +21,12 @@ const LoginScreen = ({ history }) => {
                   if (doc.data().email == email.value) {
                      sessionStorage.setItem("name", doc.data().firstName)
                      sessionStorage.setItem("email", email.value);
+                     sessionStorage.setItem("userId", doc.id);
                      sessionStorage.setItem("admin", doc.data().admin);
+                     
                   }
                })
-            })
+            });
             
          } catch (error) {
             alert(error);
