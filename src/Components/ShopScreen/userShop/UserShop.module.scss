@@ -26,12 +26,11 @@
         justify-content: center;
         align-items: center;
         flex-flow: row;
-      }
-      .frtProductAdd {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-flow: row;
+        td {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
       }
     }
   }
@@ -60,12 +59,11 @@
       justify-content: center;
       align-items: center;
       flex-flow: row;
-    }
-    .vegProductAdd {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-flow: row;
+      td {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
 }

@@ -1,13 +1,79 @@
 .footer {
   margin: 0;
+  z-index: 100000;
   padding: 0;
   background-color: transparent;
   svg {
     filter: drop-shadow(0px 5px 10px #000);
+    background: linear-gradient(
+      to top,
+      #43a047,
+      #43a047,
+      transparent 70%
+    );
     position: absolute;
     &:nth-child(1) {
-      z-index: 1;
+      z-index: 10;
       transform: scaleX(-1);
     }
   }
+}
+.footDetails {
+  overflow: hidden;
+}
+
+.footCont {
+  // background-color: lightgreen;
+  width: 100%;
+  height: 100%;
+  transform: translateX(50%, 20%);
+  z-index: 100000000;
+  .logoCont {
+    background: rgba(
+      $color: #fff,
+      $alpha: 0.1
+    );
+    height: 15rem;
+    width: 90%;
+    position: absolute;
+    z-index: 100;
+    margin-top: 10rem;
+    left: 5rem;
+    font-family: Montserrat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    color: #121212;
+    .contData {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: row;
+    }
+    .copyData{
+      // font-family: MontserratBold;
+      margin-top: 2rem;
+    }
+    .logoBorder {
+      height: 80px;
+      width: 3px;
+      margin-left: 1rem;
+      border-right: 3px #232323 solid;
+    }
+  }
+}
+
+.cont {
+  margin-left: 1rem;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("../../Assets/Fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: MontserratBold;
+  src: url("../../Assets/Fonts/Montserrat-Bold.ttf");
 }

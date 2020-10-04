@@ -7,6 +7,7 @@ import potato from '../../../Assets/images/Prouduct/potato.webp'
 import onion from '../../../Assets/images/Prouduct/onion.webp'
 import cucumber from '../../../Assets/images/Prouduct/cucumber.webp'
 import { Modal, Button } from 'react-bootstrap';
+import firebase from 'firebase';
 
 import { storage, dataBase } from '../../../FireBaseControler/firebaseConfig';
 
@@ -35,7 +36,14 @@ export default function Vegis() {
 
     const handleClose = () => setShow(false);
 
-    const handleShow = () => setShow(true);
+    const handleShow = () => {
+        console.log(firebase.auth().currentUser);
+        if (firebase.auth().currentUser) {
+            setShow(true);
+        } else {
+            alert("You have to do login to add the item")
+        }
+    }
 
     const handleUploadChange = event => {
         setFile(event.target.files[0]);
@@ -46,7 +54,7 @@ export default function Vegis() {
         const [name, price] = event.target.elements;
 
         // Create a root reference
-        var storageRef = storage.ref(`Products/${file.name}`);
+        var storageRef = storage.ref(`Products/vegies/${file.name}`);
         var task = storageRef.put(file);
         setProgress("visible")
         task.on(
@@ -59,11 +67,12 @@ export default function Vegis() {
                 alert(err)
             },
             function complete() {
-                storage.ref().child(`Products/${file.name}`).getDownloadURL().then(url => {
-                    dataBase.collection('Product').add({
+                storage.ref().child(`Products/vegies/${file.name}`).getDownloadURL().then(url => {
+                    dataBase.collection('Vegis').add({
                         "name": name.value,
                         "price": price.value,
                         "photo": url,
+                        "status": false,
                     });
                 })
             }
@@ -106,13 +115,26 @@ export default function Vegis() {
                     </div>
                     <div className={`col-md-4`}>
                         <div className={`${Styles.itemsAdd}`}>
-                            <div className={`${Styles.itm}`} onClick={handleShow}>
+                            {/* <div className={`${Styles.itm}`} onClick={handleShow}>
                                 <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                     <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                                 </svg>
                                 <div className={`mt-2`}>ADD PRODUCT!</div>
-                            </div>
+                            </div> */}
+                            {sessionStorage.getItem("admin") === true ? <div className={`${Styles.itm}`} onClick={handleShow}>
+                                <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                    <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                </svg>
+                                <div className={`mt-2`}>ADD PRODUCT!</div>
+                            </div> : <a href="/shop" className={`${Styles.itm}`}>
+                                    <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                    </svg>
+                                    <div className={`mt-2`}>more!</div>
+                                </a>}
                         </div>
                     </div>
                 </div>

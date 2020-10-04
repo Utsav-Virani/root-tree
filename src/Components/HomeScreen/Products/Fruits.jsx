@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Styles from './Fruits.module.scss';
 
 import { Modal, Button } from 'react-bootstrap';
@@ -14,16 +14,30 @@ import P3 from '../../../Assets/images/Prouduct/orange.webp';
 // import P2 from '../../../Assets/images/products/P2.png';
 // import P3 from '../../../Assets/images/products/p3.png';
 // import P4 from '../../../Assets/images/products/P5.png';
+import firebase from 'firebase';
+
+
+
 
 const Fruits = () => {
 
     const [show, setShow] = useState(false);
     const [file, setFile] = useState(null);
+
     const [progress, setProgress] = useState("hidden");
 
     const handleClose = () => setShow(false);
 
-    const handleShow = () => setShow(true);
+
+
+    const handleShow = () => {
+        console.log(firebase.auth().currentUser);
+        if (firebase.auth().currentUser) {
+            setShow(true);
+        } else {
+            alert("You have to do login to add the item")
+        }
+    }
 
     const handleUploadChange = event => {
         setFile(event.target.files[0]);
@@ -52,6 +66,7 @@ const Fruits = () => {
                         "name": name.value,
                         "price": price.value,
                         "photo": url,
+                        "status": false,
                     });
                 })
             }
@@ -114,13 +129,19 @@ const Fruits = () => {
                         </div>
                         <div style={{ height: "200px", width: "200px", borderRadius: "15px" }}>
                             <div className={`${Styles.itemsAdd}`}>
-                                <div className={`${Styles.itm}`} onClick={handleShow}>
+                                {sessionStorage.getItem("admin") === true ? <div className={`${Styles.itm}`} onClick={handleShow}>
                                     <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                         <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                                     </svg>
                                     <div className={`mt-2`}>ADD PRODUCT!</div>
-                                </div>
+                                </div> : <a href="/shop" className={`${Styles.itm}`}>
+                                    <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                    </svg>
+                                    <div className={`mt-2`}>more!</div>
+                                </a>}
                             </div>
                         </div>
                     </div>

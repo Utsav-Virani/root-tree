@@ -21,11 +21,17 @@ const Registration = ({ history }) => {
                     "lastName": lname.value,
                     "email": email.value,
                     "pass": password.value,
+                    "admin": false,
                 }).then(docRef => console.log(docRef.id))
                     .catch(error => console.log(error))
 
                 sessionStorage.setItem('email', email.value);
-                sessionStorage.setItem('name', fname.value+" "+lname.value);
+                // if(email.value === "admin@gmail.com"){
+                //     sessionStorage.setItem('admin', true );
+                // }else{
+                sessionStorage.setItem('admin', false);
+                // }
+                sessionStorage.setItem('name', fname.value + " " + lname.value);
                 history.push('/');
             } catch (error) {
                 alert(error);

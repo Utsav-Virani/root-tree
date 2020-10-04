@@ -19,11 +19,13 @@ const LoginScreen = ({ history }) => {
             dataBase.collection("user").get().then(query => {
                query.forEach(doc => {
                   if (doc.data().email == email.value) {
-                     sessionStorage.setItem("name", doc.data().name)
+                     sessionStorage.setItem("name", doc.data().firstName)
+                     sessionStorage.setItem("email", email.value);
+                     sessionStorage.setItem("admin", doc.data().admin);
                   }
                })
             })
-            sessionStorage.setItem("email", email.value);
+            
          } catch (error) {
             alert(error);
          }
