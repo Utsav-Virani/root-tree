@@ -15,6 +15,7 @@ export default function ShopScree() {
     const [idVegis, setIdVegis] = React.useState([]);
 
     const [checked, setChecked] = useState(false);
+    var no = 0;
 
     const [visibleAddPro, SetVisibleAddPro] = useState("hidden");
 
@@ -60,9 +61,10 @@ export default function ShopScree() {
                     <table className={`${Style.froutImgCont} w-100`}>
                         {
                             imgFruit ? imgFruit.map(data => {
+                                no += 1;
                                 return (
                                     <tr className={`${Style.frtProduct} w-100`}>
-                                        <td width="8%">No.</td>
+                                        <td width="8%">{no}</td>
                                         <td width="25%"><img src={data.photo} height="100" width="100" alt={data.name} /></td>
                                         <td width="25%"><p>{data.name}</p></td>
                                         <td width="8%"><p>{data.price}</p></td>
@@ -99,6 +101,7 @@ export default function ShopScree() {
                         }
                     </table>
                 </div>
+                {no = 0}
                 <div className={`${Style.vegCont}`} onLoad={useEffect(() => {
                     const fetchFrtData = async () => {
                         const imgData = await dataBase.collection('Vegis').get()
@@ -115,9 +118,10 @@ export default function ShopScree() {
                     <table className={`${Style.vegImgCont} w-100`} >
                         {
                             imgVegis ? imgVegis.map(data => {
+                                no += 1;
                                 return (
                                     <tr className={`${Style.vegProduct} w-100`}>
-                                        <td width="8%">No.</td>
+                                        <td width="8%">{no}</td>
                                         <td width="25%"><img src={data.photo} height="100" width="100" alt={data.name} /></td>
                                         <td width="25%"><p>{data.name}</p></td>
                                         <td width="8%"><p>{data.price}</p></td>
@@ -155,9 +159,9 @@ export default function ShopScree() {
                     </table>
                 </div>
             </div>
-            <div style={{ marginTop: "6rem" }}>
+            {/* <div style={{ marginTop: "6rem" , position:"fixed",bottom: "px" }}>
                 <Footer />
-            </div>
+            </div> */}
         </React.Fragment>
     );
 }

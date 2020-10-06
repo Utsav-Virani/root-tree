@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
 
 import Style from './UserShop.module.scss';
-import { dataBase } from '../../../FireBaseControler/firebaseConfig';
+import { dataBase, db } from '../../../FireBaseControler/firebaseConfig';
 import Footer from '../../Footer/Footer'
 
 import Switch from 'react-switch';
@@ -14,38 +14,55 @@ export default function UserShopScree(async) {
     const [imgVegis, setimgVegis] = useState(null);
     const [cartCount, setCartCount] = useState(0);
     const [id, setId] = React.useState([]);
-    const [cartItmCount, setCartItmCount] = useState([]);
+    // const [cartItmCount, setCartItmCount] = useState([]);
+    const cartItmCount = [];
     const [idVegis, setIdVegis] = useState([]);
     const productNames = []
 
     useEffect(() => {
         const fetchFrtData = async () => {
-            const cartConnection = await dataBase.collection('Cart').where("userId", "==", sessionStorage.getItem('userId')).get()
-            cartConnection.docs.map(doc => {
-                const temp = doc.data().products;
-                for (const key in temp) {
-                    sessionStorage.setItem(key,parseInt(temp[key]))
-                }
-            })
+            if (sessionStorage.getItem(`userId`)) {
+                const cartData = await db.ref('Cart').child(sessionStorage.getItem(`userId`)).once('value')
+                cartData.forEach(data => {
+                    // console.log(data.key);
+                    // console.log(data.val().count);
+                    // console.log("-----------");
+                    sessionStorage.setItem(data.key, data.val().count)
+                });
+            }
         }
         fetchFrtData()
     }, [])
 
-
+    // console.log(count);
+    // var demo = 0;
     const addToCart = async (name, items) => {
-        const cartConnection = await dataBase.collection('Cart').where("userId", "==", sessionStorage.getItem('userId')).get()
-        const temp = {};
-        productNames.map(names => { temp[names] = 0; if (names === name) { temp[name] = parseInt(items) } })
-        if (cartConnection.empty) {
-            dataBase.collection('Cart').add({
-                userId: sessionStorage.getItem("userId"),
-                products: temp,
-            })
-        } else {
-            cartConnection.docs.map(doc => {
-                dataBase.collection('Cart').doc(doc.id).update({ products: temp })
-            })
-        }
+        console.log(name, " - ", items);
+
+        db.ref('Cart').child(sessionStorage.getItem("userId")).child(name).set({
+            name: name,
+            count: parseInt(items),
+        })
+
+        sessionStorage.setItem(name, items)
+
+        // console.log(name, '->', demo);
+        // setCartCount(demo);
+        // const cartConnection = await dataBase.collection('Cart').where("userId", "==", sessionStorage.getItem('userId')).get()
+        // // const temp = {};
+        // // sessionStorage.setItem(name, parseInt(items))
+        // // productNames.map(names => { temp[names] = 0; if (names === name) { temp[name] = parseInt(items) } })
+        // if (cartConnection.empty) {
+        //     dataBase.collection('Cart').add({
+        //         userId: sessionStorage.getItem("userId"),
+        //         [name]: [name, items],
+        //     })
+        //     demo = items
+        // } else {
+        //     cartConnection.docs.map(doc => {
+        //         dataBase.collection('Cart').doc(doc.id).update({ [name]: [name, items - demo] })
+        //     })
+        // }
     }
 
     return (
@@ -78,8 +95,9 @@ export default function UserShopScree(async) {
                             {
                                 imgFruit ? imgFruit.map(data => {
                                     productNames.push(data.name);
-                                    const count = {};
-                                    count[data.name]= parseInt(sessionStorage.getItem(data.name));
+
+                                    // console.log(sessionStorage.getItem(data.name));
+                                    sessionStorage.getItem(data.name) === 'NaN' ? sessionStorage.setItem(data.name, 0) : sessionStorage.getItem(data.name);
                                     return (
                                         <tr key={data.name} className={`${Style.frtProduct} w-100`}>
                                             <td width="8%">No.</td>
@@ -90,15 +108,27 @@ export default function UserShopScree(async) {
                                                 {firebase.auth().currentUser ? <div style={{ border: "2px #191919 solid", borderRadius: "10px" }}>
                                                     <svg onClick={() => {
                                                         // setCartCount(cartCount + 1);
-                                                        count[data.name] = count[data.name] + 1
-                                                        addToCart(data.name, count[data.name])
+                                                        sessionStorage.setItem(data.name, parseInt(sessionStorage.getItem(data.name)) + 1)
+                                                        // count[data.name] = count[data.name] + 1
+                                                        addToCart(data.name, sessionStorage.getItem(data.name))
                                                     }}
                                                         width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                                                     </svg>
                                                     {/* {setCartCount(count[data.name])} */}
-                                                    <span>{count[data.name]}</span>
-                                                    <svg onClick={() => { cartCount === 0 ? setCartCount(0) : setCartCount(cartCount - 1) }} width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-dash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <span>{sessionStorage.getItem(data.name)}</span>
+                                                    <svg onClick={() => {
+                                                        // setCartCount(cartCount + 1);
+                                                        sessionStorage.setItem(data.name, parseInt(sessionStorage.getItem(data.name)) - 1)
+                                                        // count[data.name] = count[data.name] + 1
+                                                        addToCart(data.name, sessionStorage.getItem(data.name))
+                                                    }}
+                                                        width="2em"
+                                                        height="2em"
+                                                        viewBox="0 0 16 16"
+                                                        class="bi bi-dash"
+                                                        fill="currentColor"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
                                                     </svg>
                                                 </div> : <div style={{ border: "2px #191919 solid", borderRadius: "10px", pointerEvents: "none", opacity: "0.5" }}>
@@ -145,6 +175,7 @@ export default function UserShopScree(async) {
                             {
                                 imgVegis ? imgVegis.map(data => {
                                     productNames.push(data.name);
+                                    sessionStorage.getItem(data.name) === 'NaN' ? sessionStorage.setItem(data.name, 0) : sessionStorage.getItem(data.name);
                                     return (
                                         <tr key={data.name} className={`${Style.vegProduct} w-100`}>
                                             <td width="8%">No.</td>
@@ -152,14 +183,41 @@ export default function UserShopScree(async) {
                                             <td width="25%"><p>{data.name}</p></td>
                                             <td width="8%"><p>{data.price}</p></td>
                                             <td width="9%">
-                                                <div style={{ border: "2px #191919 solid", borderRadius: "10px" }}>
-                                                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                {firebase.auth().currentUser ? <div style={{ border: "2px #191919 solid", borderRadius: "10px" }}>
+                                                    <svg onClick={() => {
+                                                        // setCartCount(cartCount + 1);
+                                                        sessionStorage.setItem(data.name, parseInt(sessionStorage.getItem(data.name)) + 1)
+                                                        // count[data.name] = count[data.name] + 1
+                                                        addToCart(data.name, sessionStorage.getItem(data.name))
+                                                    }}
+                                                        width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                                                     </svg>
-                                                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-dash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    {/* {setCartCount(count[data.name])} */}
+                                                    <span>{sessionStorage.getItem(data.name)}</span>
+                                                    <svg onClick={() => {
+                                                        // setCartCount(cartCount + 1);
+                                                        sessionStorage.setItem(data.name, parseInt(sessionStorage.getItem(data.name)) - 1)
+                                                        // count[data.name] = count[data.name] + 1
+                                                        addToCart(data.name, sessionStorage.getItem(data.name))
+                                                    }}
+                                                        width="2em"
+                                                        height="2em"
+                                                        viewBox="0 0 16 16"
+                                                        class="bi bi-dash"
+                                                        fill="currentColor"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
                                                     </svg>
-                                                </div>
+                                                </div> : <div style={{ border: "2px #191919 solid", borderRadius: "10px", pointerEvents: "none", opacity: "0.5" }}>
+                                                        <svg onClick={() => { setCartCount(cartCount + 1) }} width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                                        </svg>
+                                                        <span>{cartCount}</span>
+                                                        <svg onClick={() => { setCartCount(cartCount - 1) }} width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-dash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                                                        </svg>
+                                                    </div>}
                                             </td>
                                         </tr>
                                     )
@@ -169,9 +227,9 @@ export default function UserShopScree(async) {
                     </table>
                 </div>
             </div>
-            <div style={{ marginTop: "6rem" }}>
+            {/* <div style={{ marginTop: "6rem" }}>
                 <Footer />
-            </div>
+            </div> */}
         </React.Fragment>
     );
 }

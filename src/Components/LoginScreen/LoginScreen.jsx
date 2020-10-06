@@ -27,6 +27,7 @@ const LoginScreen = ({ history }) => {
                   }
                })
             });
+
             
          } catch (error) {
             alert(error);

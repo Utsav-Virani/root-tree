@@ -26,7 +26,7 @@ class HomeScreen extends Component {
                 <div className={`${Styles.navBody}`}>
                     <div className={`${Styles.navContent}`}>
                         <div>
-                            <span>FRESH</span> from our <span>FARM</span> to your <span>KITCHEN</span>
+                            <span>FRESH</span> from <span>FARM</span> to <span>KITCHEN</span>
                         </div>
                         <div>
                             {!sessionStorage.getItem('name') ? <button className={`${Styles.welcomeBtn} btn btn-outline-dark btn-disabled`}>

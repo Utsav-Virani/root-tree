@@ -19,6 +19,7 @@ import './Navbar.scss';
 import config from '../../FireBaseControler/firebaseConfig';
 import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import UserShopScree from '../ShopScreen/userShop/UserShop';
+import Footer from '../Footer/Footer';
 
 export default class NavigationBar extends Component {
 
@@ -243,7 +244,7 @@ export default class NavigationBar extends Component {
 
                         <Route exact path='/' component={HomeScreenComponent} />
                         <Route exact path="/about" component={AboutScreenComponent} />
-                        {sessionStorage.getItem("admin") === true ?<Route exact path="/shop" component={ShopScreenComponent} /> :<Route exact path="/shop" component={UserShopScree} />}
+                        {sessionStorage.getItem("admin") ==='true' ? <Route exact path="/shop" component={ShopScreenComponent} /> :<Route exact path="/shop" component={UserShopScree} />}
                         <Route exact path="/offers" component={offersComponent} />
                         <Route exact path="/blog" component={BlogScreenComponent} />
                         <Route exact path="/contact" component={ContactScreenComponent} />
