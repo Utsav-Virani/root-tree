@@ -110,3 +110,30 @@ $borderColor: #212121;
     }
   }
 }
+
+.feedBackBtn{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  svg{
+    cursor: pointer;
+    &:hover{
+      filter: drop-shadow(0px 0px 1px #000 );
+    }
+  }
+}
+
+.modalBody{
+  padding: 5rem;
+  width: 100%;
+  .modalForm{
+    padding: 5rem 0rem;
+    width: 100%;
+    .formGroupControlArea{
+      width: 500px;
+    }
+    .handleFeedBackSubmitBtn{
+      width: 150px;
+    }
+  }
+}

@@ -40,6 +40,8 @@ const LoginScreen = ({ history }) => {
 
    if (currentUser) {
       // console.log(currentUser);
+      //   sessionStorage.clear();
+      //   config.auth().signOut();
       return <Redirect to="/" />;
    }
 
