@@ -15,6 +15,7 @@ const sendmail = require('sendmail')();
 export default function ContactScreen() {
 
     const [fbData, setFbData] = useState([]);
+    const [fbReplyData, setFbReplyData] = useState([]);
     const [visibleFeedBack, setVisibleFeedBack] = useState(false);
     var count = 0;
 
@@ -110,32 +111,31 @@ export default function ContactScreen() {
                     </form>
                 </div>
                 {firebase.auth().currentUser ? <>
-                    <table className={`w-100 table table-hover `}>
-                        <tr className={`w-100  ${Style.tblHead}`}>
-                            <td style={{ width: "10%" }}>No.</td>
-                            <td style={{ width: "20%" }}>E-mail Id.</td>
-                            <td style={{ width: "35%" }}>Message</td>
-                            <td style={{ width: "35%" }}>Reply</td>
-                        </tr>
-                        <tbody>
-                            {
-                                // dataBase.collection("FeedBack").where("email", "==", sessionStorage.getItem("fbEmail")).get().then(query => {
-                                //     query.forEach(doc => {
-                                //         return (
-                                //             <tr className={`w-100`}>
-                                //                 <td style={{ width: "10%" }}>{count++}</td>
-                                //                 <td style={{ width: "20%" }}>{doc.data().email}</td>
-                                //                 <td style={{ width: "35%" }}>{doc.data().message}</td>
-                                //                 <td style={{ width: "35%" }}>{doc.data().reply}</td>
-                                //             </tr>
-                                //         )
-                                //     })
-                                // })
-                            }
-                        </tbody>
-                    </table>
+                    <div className={`${Style.replyContTable}`}>
+                        <table className={`w-100 table table-hover `}>
+                            <thead><tr className={`w-100  ${Style.tblHead}`}>
+                                <td style={{ width: "10%" }}>No.</td>
+                                <td style={{ width: "20%" }}>E-mail Id.</td>
+                                <td style={{ width: "35%" }}>Message</td>
+                                <td style={{ width: "35%" }}>Reply</td>
+                            </tr></thead>
+                            <tbody>
+                                {
+                                    fbData ? fbData.map(data => {
+                                        return (
+                                            <tr className={`w-100`}>
+                                                <td style={{ width: "10%" }}>{++count}</td>
+                                                <td style={{ width: "20%" }}>{data.email}</td>
+                                                <td style={{ width: "35%" }}>{data.message}</td>
+                                                <td style={{ width: "35%" }}>{data.reply}</td>
+                                            </tr>
+                                        )
+                                    }) : null
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </> : null}
-                {count = 0}
             </> : <>
                     <div className={`${Style.adminContTable}`}>
                         <table className={`w-100 table table-hover `}>
