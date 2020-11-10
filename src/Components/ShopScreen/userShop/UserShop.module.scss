@@ -112,11 +112,7 @@
   }
   div {
     transition: 0.4s ease-in-out all;
-    cursor: pointer;
   }
   transition: 0.4s ease-in-out all;
   z-index: 10000;
-  &:hover {
-    // transform: scale(1.1);
-  }
 }

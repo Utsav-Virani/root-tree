@@ -42,12 +42,14 @@ export default function UserShopScree(async) {
 
     // console.log(count);
     // var demo = 0;
-    const addToCart = async (name, items) => {
+    const addToCart = async (name, url, price, items) => {
         console.log(name, " - ", items);
 
         db.ref('Cart').child(sessionStorage.getItem("userId")).child(name).set({
             name: name,
             count: parseInt(items),
+            price: price,
+            url: url,
         })
         if (parseInt(items) === 0) {
             db.ref('Cart').child(sessionStorage.getItem("userId")).child(name).remove();
@@ -120,7 +122,7 @@ export default function UserShopScree(async) {
                                                         sessionStorage.setItem(data.name, parseInt(sessionStorage.getItem(data.name)) + 1)
                                                         // count[data.name] = count[data.name] + 1
                                                         setCartCount(cartCount + 1)
-                                                        addToCart(data.name, sessionStorage.getItem(data.name))
+                                                        addToCart(data.name, data.photo, parseFloat(data.price), sessionStorage.getItem(data.name))
                                                     }}
                                                         width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
@@ -138,11 +140,11 @@ export default function UserShopScree(async) {
                                                             else if (cartCount > 0) {
                                                                 setCartCount(cartCount - 1)
                                                             }
-                                                            addToCart(data.name, sessionStorage.getItem(data.name))
+                                                            addToCart(data.name, data.photo, parseFloat(data.price), sessionStorage.getItem(data.name))
                                                         } else {
                                                             sessionStorage.setItem(data.name, 0)
                                                             // count[data.name] = count[data.name] + 1
-                                                            addToCart(data.name, sessionStorage.getItem(data.name))
+                                                            addToCart(data.name, data.photo, parseFloat(data.price), sessionStorage.getItem(data.name))
                                                         }
                                                     }}
                                                         width="2em"
@@ -211,7 +213,7 @@ export default function UserShopScree(async) {
                                                         sessionStorage.setItem(data.name, parseInt(sessionStorage.getItem(data.name)) + 1)
                                                         // count[data.name] = count[data.name] + 1
                                                         setCartCount(cartCount + 1)
-                                                        addToCart(data.name, sessionStorage.getItem(data.name))
+                                                        addToCart(data.name, data.photo, parseFloat(data.price), sessionStorage.getItem(data.name))
                                                     }}
                                                         width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
@@ -229,11 +231,11 @@ export default function UserShopScree(async) {
                                                             else if (cartCount > 0) {
                                                                 setCartCount(cartCount - 1)
                                                             }
-                                                            addToCart(data.name, sessionStorage.getItem(data.name))
+                                                            addToCart(data.name, data.photo, parseFloat(data.price), sessionStorage.getItem(data.name))
                                                         } else {
                                                             sessionStorage.setItem(data.name, 0)
                                                             // count[data.name] = count[data.name] + 1
-                                                            addToCart(data.name, sessionStorage.getItem(data.name))
+                                                            addToCart(data.name, data.photo, parseFloat(data.price), sessionStorage.getItem(data.name))
                                                         }
                                                     }}
                                                         width="2em"
@@ -262,11 +264,11 @@ export default function UserShopScree(async) {
                     </table>
                 </div>
             </div>
-            <div className={`${Style.cartBtn}`} >
-                <div className={`${Style.cartBtnLogo}`} style={!contVisible ? {borderRadius:"10px"} :{borderRadius:"0px"}} onClick={()=>{setContVisible(!contVisible)}}>
-                <label className={`${Style.cartBtnlbl}`} style={!contVisible ? {transform:"scale(1)"} : {transform: "scale(0)"}}>{cartCount}</label>
+            {firebase.auth().currentUser ? <div className={`${Style.cartBtn}`} style={!contVisible ? { paddingLeft: "1px" } : { paddingLeft: "0px" }}>
+                <div className={`${Style.cartBtnLogo}`} style={!contVisible ? { borderRadius: "10px" } : { borderRadius: "0px" }} onClick={() => { setContVisible(!contVisible) }}>
+                    <label className={`${Style.cartBtnlbl}`} style={!contVisible ? { transform: "scale(1)" } : { transform: "scale(0)" }}>{cartCount}</label>
                     <div>
-                        <svg
+                        {!contVisible ? <svg
                             width="2.6em"
                             height="2.6em"
                             viewBox="0 0 16 16"
@@ -274,11 +276,14 @@ export default function UserShopScree(async) {
                             fill="#656565"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM3.394 15l-1.48-6h-.97l1.525 6.426a.75.75 0 0 0 .729.574h9.606a.75.75 0 0 0 .73-.574L15.056 9h-.972l-1.479 6h-9.21z" />
-                        </svg>
+                        </svg> :
+                            <svg width="2.6em" height="2.6em" viewBox="0 0 16 16" class="bi bi-x" fill="#656565" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                            </svg>}
                     </div>
                 </div>
                 {contVisible ? <Cart count={cartCount} /> : null}
-            </div>
+            </div> : null}
         </React.Fragment>
     );
 }

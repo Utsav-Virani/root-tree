@@ -20,6 +20,7 @@ import config from '../../FireBaseControler/firebaseConfig';
 import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import UserShopScree from '../ShopScreen/userShop/UserShop';
 import Footer from '../Footer/Footer';
+import Checkout from '../CheckOut/Checkout';
 
 export default class NavigationBar extends Component {
 
@@ -52,6 +53,8 @@ export default class NavigationBar extends Component {
 
     render() {
 
+        // sessionStorage.clear();
+        // config.auth().signOut();
         let navFontColor = "#343A40";
 
         return (
@@ -250,6 +253,7 @@ export default class NavigationBar extends Component {
                         <Route exact path="/contact" component={ContactScreenComponent} />
                         <Route exact path="/login" component={LoginScreenComponent} />
                         <Route exact path="/register" component={RegisterScreenComponent} />
+                        <Route exact path="/checkout" component={Checkout} />
                     </div>
                 </div>
             </Router >
