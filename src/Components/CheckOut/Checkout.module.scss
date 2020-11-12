@@ -1,6 +1,10 @@
+$needHelpColor: #b03a2e;
+$animationPxl: 4px;
+$borderColor: #424242;
 .contBg {
   transition: all ease 0.5s;
-  height: 400px;
+  height: 100%;
+  margin-top: 2rem;
   padding: 0;
   font-family: Montserrat;
   width: 100%;
@@ -18,20 +22,23 @@
 }
 
 .cartCont {
-  height: 100%;
   width: 60%;
   padding-left: 2rem;
   overflow-y: auto;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  justify-content: center;
   padding-right: 1rem;
 }
 
 .cartUserData {
   width: 40%;
-  height: 100%;
   display: flex;
-  justify-content: center;
+  // justify-content: center;
+  // background: crimson;
   align-items: center;
-  flex-flow: column wrap;
+  flex-flow: column;
   .userProfile {
     svg {
       filter: drop-shadow(
@@ -53,16 +60,44 @@
 }
 
 .userData {
-    width: 100%;
-    margin-top: 2rem;
-    padding-left: 2rem;
+  width: 100%;
+  margin-top: 2rem;
+  padding-left: 6rem;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
 }
 
+.formGroupControlContainer {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.formGroupControl {
+  width: 60%;
+  color: #212121;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  border-bottom: $borderColor solid 2px;
+  transition: all 0.3s ease;
+
+  &:focus {
+    border-bottom: 1px $borderColor solid;
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+.error {
+  font-size: 16px;
+  color: red;
+  font-family: MontserratBold;
+}
 .cartContInner {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   box-shadow: 3px 4px 10px 0px
     darken($color: #dadedf, $amount: 10);
   height: 100px;
@@ -71,19 +106,42 @@
 }
 
 .cartContainer {
-  margin-top: 1rem;
+  margin-top: 2rem;
   height: 100%;
   display: flex;
   flex-flow: row wrap;
 }
 
 .container {
-  top: 7rem;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-flow: column;
+  height: 100%;
+  margin-top: 0rem;
+  // background: chocolate;
 }
+.custom_shape {
+  // position: absolute;
+  // bottom: 0;
+  // left: 0;
+  transform: rotateZ(180deg);
+  width: 100%;
+  margin-bottom: 0;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom_shape svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 178px;
+}
+
+// .custom_shape .shape_fill {
+//   color: #4CAF50;
+// }
 
 .cartContHeader {
   cursor: default;
@@ -115,22 +173,29 @@
 }
 
 .cartContFooter {
-  background: #3ea0e1;
+  // background: #3ea0e1;
   cursor: pointer;
-  position: absolute;
-  bottom: 0;
   width: 100%;
+  z-index: 100000;
   height: 4.6rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 36px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  font-size: 30px;
+  margin-top: 2rem;
   color: white;
   transition: 0.5s all ease;
   span {
     background: #3ea0e1;
     z-index: 1000;
-    color: white;
+    font-size: 28px;
+    padding: 1rem 2rem;
+    a{
+      color: whitesmoke;
+      &:hover{
+        text-decoration: none;
+      }
+    }
   }
   .arowAnimation {
     transform: translate(-30px, -2px);

@@ -18,4 +18,4 @@ const storage = config.storage();
 const db = config.database();
 
 const dataBase = config.firestore();
-export { storage, dataBase, db , config as default };
+export { storage, dataBase, db, config as default };
