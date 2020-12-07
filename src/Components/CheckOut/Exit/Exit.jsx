@@ -23,7 +23,7 @@ class Exit extends Component {
         dataBase.collection("Order").doc(sessionStorage.getItem("orderId")).get().then((data) => {
             this.setState({ orderData: data.data() });
         });
-        const cartRef = db.ref(`Order/${sessionStorage.getItem(`userId`)}/products`);
+        const cartRef = db.ref(`Order/${sessionStorage.getItem(`orderId`)}/products`);
         cartRef.on('value', (snap) => {
             let word = snap.val();
             let newState = [];

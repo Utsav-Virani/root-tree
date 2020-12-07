@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import Logo from '../../Assets/images/logo/Logo.png';
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 
 import HomeScreenComponent from '../HomeScreen/HomeScreen';
 import AboutScreenComponent from '../AboutScreen/AboutScreen';
@@ -22,6 +22,7 @@ import UserShopScree from '../ShopScreen/userShop/UserShop';
 import Footer from '../Footer/Footer';
 import Checkout from '../CheckOut/Checkout';
 import Exit from '../CheckOut/Exit/Exit';
+import OrderList from '../ShopScreen/OrderList';
 
 export default class NavigationBar extends Component {
 
@@ -43,6 +44,7 @@ export default class NavigationBar extends Component {
         });
         sessionStorage.clear();
         config.auth().signOut();
+        return <Redirect to="/" />
     }
 
     // componentDidUpdate() {
@@ -256,6 +258,7 @@ export default class NavigationBar extends Component {
                         <Route exact path="/register" component={RegisterScreenComponent} />
                         <Route exact path="/checkout/exit" component={Exit} />
                         <Route exact path="/checkout" component={Checkout} />
+                        {sessionStorage.getItem("admin") === 'true' ? <Route exact path="/shop/orderList/:id" component={OrderList} /> : null}
                     </div>
                 </div>
             </Router >

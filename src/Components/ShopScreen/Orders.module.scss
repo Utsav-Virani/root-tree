@@ -1,0 +1,47 @@
+.contBg {
+  transition: all ease 0.5s;
+  height: 400px;
+  padding: 0;
+  width: 760px;
+  z-index: 0;
+}
+
+.orderCont {
+  height: 100%;
+  width: 100%;
+  padding-left: 2rem;
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+.cartContInner {
+  display: flex;
+  color: #292929;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+  box-shadow: 3px 4px 10px 0px
+    darken($color: #dadedf, $amount: 10);
+  height: 100px;
+  //   border-radius: 10px;
+  width: 100%;
+  border-radius: 10px;
+  &:hover{
+      text-decoration: none;
+      color: #292929;
+  }
+}
+label {
+  width: 160px;
+  font-family: MontserratBold;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("../../Assets/Fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: MontserratBold;
+  src: url("../../Assets/Fonts/Montserrat-Bold.ttf");
+}

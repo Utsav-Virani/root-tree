@@ -89,12 +89,20 @@ class Checkout extends Component {
             paymode: this.state.selectedValue,
             products: this.state.cartdata,
             totelPay: parseFloat(this.state.cartCost).toFixed(2),
+            delivered: false,
         }).then(function(docRef) {
             sessionStorage.setItem("orderId",docRef.id)
         });
-        db.ref('Order').child(sessionStorage.getItem("userId")).set({
-            uid:sessionStorage.getItem("userId"),
+        db.ref('Order').child(sessionStorage.getItem("orderId")).set({
+            uid: sessionStorage.getItem("userId"),
+            name: name.value,
+            email: email.value,
+            mobno: mobn.value,
+            address: address.value,
+            paymode: this.state.selectedValue,
             products: this.state.cartdata,
+            totelPay: parseFloat(this.state.cartCost).toFixed(2),
+            delivered: false,
         })
         this.props.history.push(`/checkout/exit`);
         // return <Redirect to="/checkout/exit" />

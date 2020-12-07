@@ -1,8 +1,9 @@
 .shopCont {
   //   background: darkcyan;
-  height: 100%;
+  height: auto;
   width: 100%;
   padding-top: 2%;
+  background: #edf1f2;
   .fruitCont {
     width: 100%;
     display: flex;
@@ -11,8 +12,9 @@
     flex-flow: column;
     padding: 0rem 2rem;
     .FruitHead {
-      font-size: 40px;
+      font-size: 50px;
       border-bottom: #454545 solid 3px;
+      font-family: MontserratBold;
     }
     .froutImgCont {
       display: flex;
@@ -26,6 +28,14 @@
         justify-content: center;
         align-items: center;
         flex-flow: row;
+        margin-top: 1rem;
+        td {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 110px;
+          border-bottom: 2px #232323 solid;
+        }
       }
       .frtProductAdd {
         display: flex;
@@ -42,11 +52,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #edf1f2;
   flex-flow: column;
-  padding: 0rem 2rem;
+  padding: 3rem 2rem;
   .vegHead {
-    font-size: 40px;
+    font-size: 50px;
     border-bottom: #454545 solid 3px;
+    font-family: MontserratBold;
   }
   .vegImgCont {
     display: flex;
@@ -60,6 +72,14 @@
       justify-content: center;
       align-items: center;
       flex-flow: row;
+      margin-top: 1rem;
+      td {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 110px;
+        border-bottom: 2px #232323 solid;
+      }
     }
     .vegProductAdd {
       display: flex;
@@ -68,4 +88,59 @@
       flex-flow: row;
     }
   }
+}
+
+.cartBtn {
+  overflow: hidden;
+  position: fixed;
+  right: 3rem;
+  bottom: 3rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px 0px
+    darken($color: #dadedf, $amount: 20);
+  .cartBtnLogo {
+    position: fixed;
+    right: 3rem;
+    bottom: 3rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: 0.4s ease-in-out all;
+    z-index: 1000;
+  }
+  .cartBtnlbl {
+    background: #e94a35;
+    color: white;
+    position: absolute;
+    height: 27px;
+    width: 27px;
+    padding: 0;
+    flex-flow: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    left: 58px;
+    transition: 0.4s ease-in-out all;
+    top: -8px;
+    box-shadow: 1px 1px 5px 0px
+      darken($color: #e94a35, $amount: 20);
+  }
+  div {
+    transition: 0.4s ease-in-out all;
+  }
+  transition: 0.4s ease-in-out all;
+  z-index: 10000;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("../../Assets/Fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: MontserratBold;
+  src: url("../../Assets/Fonts/Montserrat-Bold.ttf");
 }
