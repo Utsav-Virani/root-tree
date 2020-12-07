@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AACG,AACC,cADK,AACJ,mBAAmB,EADrB,cAAM,AACkB,kBAAkB,CAAC;EACxC,SAAS,EAAE,QAAQ,CAAC,iCAAiC,CAAC,IAAI,CACxD,wBAAwB;CAC3B;;AAIL,UAAU,CAAV,QAAU;EACR,EAAE;IACA,SAAS,EAAE,WAAW",
-    "sources": [
-        "ControlledCarousel.scss"
-    ],
-    "names": [],
-    "file": "ControlledCarousel.css"
-}

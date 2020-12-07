@@ -21,6 +21,7 @@ import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import UserShopScree from '../ShopScreen/userShop/UserShop';
 import Footer from '../Footer/Footer';
 import Checkout from '../CheckOut/Checkout';
+import Exit from '../CheckOut/Exit/Exit';
 
 export default class NavigationBar extends Component {
 
@@ -60,7 +61,7 @@ export default class NavigationBar extends Component {
         return (
             <Router>
                 <div className="mainBody">
-                    {window.location.pathname !== '/login' ? window.location.pathname !== '/register' ? <div className="navBody sticky-top">
+                    {window.location.pathname !== '/login' ? window.location.pathname !== '/register' ? window.location.pathname !== '/checkout/exit' ? <div className="navBody sticky-top">
                         <nav className="navbar container sticky-top horizontelNav navbar-expand">
                             <div className="brandDetails">
                                 <center>
@@ -242,17 +243,18 @@ export default class NavigationBar extends Component {
                             </div>
                         </nav>
                     </div>
-                        : <></> : <></>}
+                        : <></> : <></> : <></>}
                     <div className="page-content p-0 m-0" id="content">
 
                         <Route exact path='/' component={HomeScreenComponent} />
                         <Route exact path="/about" component={AboutScreenComponent} />
-                        {sessionStorage.getItem("admin") ==='true' ? <Route exact path="/shop" component={ShopScreenComponent} /> :<Route exact path="/shop" component={UserShopScree} />}
+                        {sessionStorage.getItem("admin") === 'true' ? <Route exact path="/shop" component={ShopScreenComponent} /> : <Route exact path="/shop" component={UserShopScree} />}
                         <Route exact path="/offers" component={offersComponent} />
                         <Route exact path="/blog" component={BlogScreenComponent} />
                         <Route exact path="/contact" component={ContactScreenComponent} />
                         <Route exact path="/login" component={LoginScreenComponent} />
                         <Route exact path="/register" component={RegisterScreenComponent} />
+                        <Route exact path="/checkout/exit" component={Exit} />
                         <Route exact path="/checkout" component={Checkout} />
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useCallback } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { dataBase, db } from '../../FireBaseControler/firebaseConfig';
 import Style from './Checkout.module.scss'
@@ -27,6 +27,7 @@ class Checkout extends Component {
         this.state = {
             cartdata: [],
             cartCost: 0,
+            orderId: "",
             emailValid: false,
             selectedValue: '',
             errors: {
@@ -59,11 +60,11 @@ class Checkout extends Component {
             /^[0-9]+$/
         );
         const mn = event.target.value;
-        console.log(mn);
-        console.log(validEmailRegex.test(mn));
+        // console.log(mn);
+        // console.log(validEmailRegex.test(mn));
         let errors = this.state.errors;
         this.setState({ emailValid: validEmailRegex.test(mn) });
-        console.log(this.state.emailValid);
+        // console.log(this.state.emailValid);
         errors.email = validEmailRegex.test(mn) ? '' : 'Mobile No. is not valid!';
     }
 
@@ -71,9 +72,37 @@ class Checkout extends Component {
         this.setState({ selectedValue: event.target.value });
     };
 
+    handleFormSubmit = (event) => {
+        event.preventDefault();
+
+        const { name, email, mobn, address } = event.target.elements;
+        // console.log(name.value);
+        // console.log(email.value);
+        // console.log(mobn.value);
+        // console.log(address.value);
+        dataBase.collection("Order").add({
+            uid: sessionStorage.getItem("userId"),
+            name: name.value,
+            email: email.value,
+            mobno: mobn.value,
+            address: address.value,
+            paymode: this.state.selectedValue,
+            products: this.state.cartdata,
+            totelPay: parseFloat(this.state.cartCost).toFixed(2),
+        }).then(function(docRef) {
+            sessionStorage.setItem("orderId",docRef.id)
+        });
+        db.ref('Order').child(sessionStorage.getItem("userId")).set({
+            uid:sessionStorage.getItem("userId"),
+            products: this.state.cartdata,
+        })
+        this.props.history.push(`/checkout/exit`);
+        // return <Redirect to="/checkout/exit" />
+    }
+
     render() {
         if (!sessionStorage.getItem("email")) {
-            return <Redirect to="/" />;
+            return <Redirect to="/"/>;
         }
         const { errors } = this.state;
         return (
@@ -138,8 +167,8 @@ class Checkout extends Component {
                                 </svg>
                                 <div></div>
                             </div>
-                            <div className={`${Style.userData}`}>
-                                <div className={`${Style.formGroupControlContainer}`}>
+                            <form onSubmit={this.handleFormSubmit} className={`${Style.userData}`}>
+                                <div className={`${Style.formGroupControlContainer} form-group`}>
                                     {/* Name : */}
                                     <input
                                         id="inputName"
@@ -153,7 +182,7 @@ class Checkout extends Component {
                                         className={`${Style.formGroupControl} form-control col-sm-10`}
                                     />
                                 </div>
-                                <div className={`${Style.formGroupControlContainer}`}>
+                                <div className={`${Style.formGroupControlContainer} form-group`}>
                                     {/* E-Mail : */}
                                     <input
                                         id="inputEmail"
@@ -167,12 +196,12 @@ class Checkout extends Component {
                                         className={`${Style.formGroupControl} form-control`}
                                     />
                                 </div>
-                                <div className={`${Style.formGroupControlContainer}`}>
+                                <div className={`${Style.formGroupControlContainer} form-group`}>
                                     {/* Mobile No. : */}
                                     <input
                                         id="inputMn"
                                         type="phone"
-                                        name="mn"
+                                        name="mobn"
                                         placeholder="Mobile No."
                                         required="true"
                                         minLength="10"
@@ -185,7 +214,7 @@ class Checkout extends Component {
                                     />
                                     {!this.state.emailValid ? <span className={`${Style.error}`}>{errors.email}</span> : null}
                                 </div>
-                                <div className={`${Style.formGroupControlContainer}`}>
+                                <div className={`${Style.formGroupControlContainer} form-group`}>
                                     {/* Address : */}
                                     <textarea
                                         name="address"
@@ -199,7 +228,7 @@ class Checkout extends Component {
                                         className={`${Style.formGroupControl} form-control`}
                                     ></textarea>
                                 </div>
-                                <div className={`${Style.formGroupControlContainer}`}>
+                                <div className={`${Style.formGroupControlContainer} form-group`}>
                                     Payment Method :
                                    <div>
                                         <div>
@@ -211,7 +240,7 @@ class Checkout extends Component {
                                                 inputProps={{ 'aria-label': 'COD' }}
                                             />COD
                                         </div>
-                                        <div>
+                                        {/* <div>
                                             <GreenRadio
                                                 checked={this.state.selectedValue === 'dbt'}
                                                 onChange={this.handleChangeRadio}
@@ -220,16 +249,17 @@ class Checkout extends Component {
                                                 name="radio-button-demo"
                                                 inputProps={{ 'aria-label': 'Debit Card' }}
                                             />Debit Card
-                                        </div>
+                                        </div> */}
                                     </div>
                                     {/* {this.state.selectedValue} */}
                                 </div>
-                                <div to="checkout" className={`${Style.cartContFooter}`}>
+                                <button type="submit" className={`${Style.cartContFooter}`}>
                                     <span>
-                                        <a href="/checkout/exit">Proceed TO Check-Out</a>
+                                        Proceed TO Check-Out
+                                        {/* <a href="/checkout/exit">Proceed TO Check-Out</a> */}
                                     </span>
-                                </div>
-                            </div>
+                                </button>
+                            </form>
                         </div>
                     </div>
                     <div>
