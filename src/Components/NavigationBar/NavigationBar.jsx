@@ -23,6 +23,7 @@ import Footer from '../Footer/Footer';
 import Checkout from '../CheckOut/Checkout';
 import Exit from '../CheckOut/Exit/Exit';
 import OrderList from '../ShopScreen/OrderList';
+import AddOffers from '../Offers/AddOffers';
 
 export default class NavigationBar extends Component {
 
@@ -258,6 +259,7 @@ export default class NavigationBar extends Component {
                         <Route exact path="/register" component={RegisterScreenComponent} />
                         <Route exact path="/checkout/exit" component={Exit} />
                         <Route exact path="/checkout" component={Checkout} />
+                        {sessionStorage.getItem("admin") === 'true' ? <Route exact path="/offers/add" component={AddOffers} /> : null}
                         {sessionStorage.getItem("admin") === 'true' ? <Route exact path="/shop/orderList/:id" component={OrderList} /> : null}
                     </div>
                 </div>

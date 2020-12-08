@@ -14,6 +14,9 @@ class offers extends Component {
                             <h2>We don't have any offers yet!</h2>
                         </div>
                         <a href="/">Go TO Homepage</a>
+                        {/* {sessionStorage.getItem('admin') ?
+                            <a href="/offers/add">ADD OFFERS</a>
+                            : <a href="/">Go TO Homepage</a>} */}
                     </div>
                 </div>
             </React.Fragment>

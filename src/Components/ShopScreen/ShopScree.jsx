@@ -17,7 +17,7 @@ export default function ShopScree() {
 
     const [checked, setChecked] = useState(false);
     var no = 0;
-    const [contVisible, setContVisible] = useState(true);
+    const [contVisible, setContVisible] = useState(false);
 
     const [visibleAddPro, SetVisibleAddPro] = useState("hidden");
 
